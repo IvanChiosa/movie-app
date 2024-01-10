@@ -1,4 +1,3 @@
-
 export interface Movie {
     _id: string,
     imdbId: string,
@@ -12,9 +11,7 @@ export interface Movie {
 }
 
 export interface HeroProps {
-
     movies: Movie[];
-    //getMovieData: (movieId: string) => Promise<void>;
 }
 
 export interface Review {

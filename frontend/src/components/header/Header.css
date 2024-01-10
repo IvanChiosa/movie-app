@@ -1,0 +1,60 @@
+/* Stil für die gesamte Navbar */
+.navbar {
+  height: 50px;
+  display: flex;
+  align-items: center; /* Zentriert Elemente vertikal in der Navbar */
+  justify-content: space-between; /* Erzeugt gleichmäßigen Raum zwischen den Hauptelementen */
+}
+
+/* Stil für den Container */
+.container.fluid {
+  display: flex;
+  flex-wrap: wrap; /* Erlaubt Umbrüche für kleinere Bildschirme */
+  width: 100%;
+}
+
+/* Stil für das Brand-Element */
+.navbar-brand {
+  flex-grow: 1; /* Erlaubt es dem Brand, Raum zu beanspruchen */
+  display: flex;
+  align-items: center;
+  color: gold; /* Setzt die Farbe des Brands */
+  text-decoration: none; /* Entfernt Unterstreichung */
+}
+
+/* Stil für die Navigationslinks */
+.navbar-collapse {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-row {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: white; /* Setzt die Farbe der Links */
+  text-decoration: none; /* Entfernt Unterstreichung */
+  margin-right: 10px; /* Abstand zwischen den Links */
+}
+
+.nav-link:hover {
+  color: lightgray; /* Farbe beim Hover */
+}
+
+/* Stil für die Buttons */
+.navbar-collapse .ms-auto {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  transition: 0.3s; /* Sanfter Übergang beim Hover */
+}
+
+button:hover {
+  color: #fff; /* Farbe beim Hover */
+  background-color: #17a2b8; /* Hintergrundfarbe beim Hover */
+}

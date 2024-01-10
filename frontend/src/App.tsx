@@ -9,6 +9,7 @@ import Header from "./components/header/Header.tsx";
 import Trailer from "./components/trailer/Trailer.tsx";
 import Reviews from "./components/reviews/Reviews.tsx";
 import {Review} from "./Interfaces.tsx";
+import NotFound from "./components/notFound/NotFound.tsx";
 
 function App() {
     const [movies, setMovies] = useState<Movies[]>([]);
@@ -57,6 +58,7 @@ function App() {
                         <Route path="/" element={<Home movies={movies}/>}/>
                         <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}/>
                         <Route path="/Reviews/:movieId" element={<Reviews getMovieData={getMovieData} movies={movie} reviews={reviews} setReviews={setReviews}/>}/>
+                        <Route path="*" element={<NotFound />}/>
                     </Route>
                 </Routes>
             </div>

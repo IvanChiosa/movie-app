@@ -2,6 +2,7 @@ package org.example.backend;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,5 +20,9 @@ public class MovieService {
 
     public Optional<Movie> singleMovie(String imdbId) {
         return movieRepository.findMovieByImdbId(imdbId);
+    }
+
+    public Movie saveMovie(Movie movie) {
+        return movieRepository.save(movie);
     }
 }

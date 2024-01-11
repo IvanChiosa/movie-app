@@ -10,11 +10,13 @@ import Trailer from "./components/trailer/Trailer.tsx";
 import Reviews from "./components/reviews/Reviews.tsx";
 import {Review} from "./Interfaces.tsx";
 import NotFound from "./components/notFound/NotFound.tsx";
+import AddMovieForm from "./components/addMovie/AddMovieForm.tsx";
 
 function App() {
     const [movies, setMovies] = useState<Movies[]>([]);
     const [movie, setMovie] = useState();
     const [reviews, setReviews] = useState<Review[]>([]);
+
     const getMovies = () => {
         axios.get("/api/v1/movies")
             .then(response => {
@@ -26,9 +28,6 @@ function App() {
     }
 
     const getMovieData = async (movieId: string | undefined) => {
-        // if (!movieId) {
-        //     return;
-        // }
         try {
             const response = await axios.get(`/api/v1/movies/${movieId}`);
             const singleMovie = response.data;
@@ -37,7 +36,6 @@ function App() {
             if (Array.isArray(singleMovie.reviews)) {
                 setReviews(singleMovie.reviews);
             } else {
-                // Behandlung, falls keine Reviews vorhanden sind
                 setReviews([]);
             }
         } catch (error) {
@@ -59,6 +57,7 @@ function App() {
                         <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}/>
                         <Route path="/Reviews/:movieId" element={<Reviews getMovieData={getMovieData} movies={movie} reviews={reviews} setReviews={setReviews}/>}/>
                         <Route path="*" element={<NotFound />}/>
+                        <Route path="/add" element={<AddMovieForm/>}/>
                     </Route>
                 </Routes>
             </div>

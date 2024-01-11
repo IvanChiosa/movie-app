@@ -45,10 +45,11 @@ const Reviews: React.FC<ReviewsProps> = ({ getMovieData, movie, reviews, setRevi
                 const updatedReviews = [...reviews, newReview];
 
                 // Aktualisieren des Zustands
-                setReviews(updatedReviews);
+               setReviews(updatedReviews);
 
                 // Zurücksetzen des Eingabefelds
                 revText.current.value = "";
+
             } catch (err) {
                 console.error(err);
             }

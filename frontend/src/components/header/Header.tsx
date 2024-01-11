@@ -18,6 +18,7 @@ const Header : React.FC = () => {
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto my-2 my-lg-0 navbar-row" navbarScroll>
                         <NavLink className="nav-link" to="/">Home</NavLink>
+                        <NavLink className="nav-link" to="/add">Add new Movies</NavLink>
                         <NavLink className="nav-link" to="/watchList">Watch List</NavLink>
                     </Nav>
                     <div className="ms-auto navbar-row">

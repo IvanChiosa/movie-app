@@ -1,6 +1,6 @@
 import React from "react";
-import {Form} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import {Form, Button} from "react-bootstrap";
+
 
 interface ReviewFormProps {
     handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;

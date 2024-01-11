@@ -37,7 +37,7 @@ const Reviews: React.FC<ReviewsProps> = ({ getMovieData, movie, reviews, setRevi
 
             try {
                 // Annahme: Der Server gibt die vollständige Review zurück
-                const response = await axios.post<Review>("/api/v1/reviews", { reviewBody: rev, imdbId: movieId });
+                const response = await axios.post<Review>("/api/v1/reviews", { reviewBody:rev , imdbId: movieId });
 
                 const newReview = response.data;
 
@@ -63,6 +63,7 @@ const Reviews: React.FC<ReviewsProps> = ({ getMovieData, movie, reviews, setRevi
             </Row>
             <Row className="mt-2">
                 <Col>
+                    {/*// hier fehlt noch ein Bild*/}
                     <img src={movie?.poster} alt="" />
                 </Col>
                 <Col>

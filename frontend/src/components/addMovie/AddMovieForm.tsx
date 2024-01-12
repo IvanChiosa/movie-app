@@ -7,7 +7,7 @@ interface MovieFormData {
     title: string;
     releaseDate: string;
     trailerLink: string;
-    genres: string;
+    genres: string[];
     poster: string;
 }
 
@@ -18,24 +18,29 @@ const AddMovieForm: React.FC = ( ) => {
         title: '',
         releaseDate: '',
         trailerLink: '',
-        genres: '',
+        genres: [],
         poster: '',
     };
 
     // State für die Verwaltung der Formulardaten
     const [formData, setFormData] = useState<MovieFormData>(initialFormData);
-
     // Behandlung der Änderungen in den Formularfeldern
     const handleInputChange =(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        if (name === 'genres') {
+            // Trennen Sie die Genres durch Kommas und entfernen Sie Leerzeichen
+            const genresArray = value.split(',').map(genre => genre.trim());
+            setFormData({ ...formData, genres: genresArray });
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
     };
 
     // Funktion zum Senden des Formulars
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response=  axios.post('/api/v1/movies', formData);
+            const response= await axios.post('/api/v1/movies/add', formData);
             // Optional: Aktualisieren der Filmliste, falls erforderlich
             setFormData(initialFormData); // Zurücksetzen des Formulars nach dem Senden
             console.log(response)
@@ -44,11 +49,26 @@ const AddMovieForm: React.FC = ( ) => {
         }
     };
 
+    const handleGenreChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({ ...formData, genres: [e.target.value] });
+    };
+
+    // const handleGenreChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     const { value, checked } = e.target;
+    //
+    //     // Aktualisieren des Genres basierend auf der Auswahl
+    //     if (checked) {
+    //         setFormData({ ...formData, genres: [...formData.genres, value] });
+    //     } else {
+    //         setFormData({ ...formData, genres: formData.genres.filter(genre => genre !== value) });
+    //     }
+    // };
+
     // Das Formular-Rendering
     return (
         <div>
             <h2>Add a New Movie</h2>
-            <form >
+            <form>
                 {/* IMDb ID Eingabefeld */}
                 <div>
                     <label>IMDb ID:</label>
@@ -92,13 +112,35 @@ const AddMovieForm: React.FC = ( ) => {
                 {/* Genres Eingabefeld */}
                 <div>
                     <label>Genres:</label>
-                    <input
-                        type="text"
-                        name="genres"
-                        value={formData.genres}
-                        onChange={handleInputChange}
-                    />
+                    <div>
+                        <input
+                            type="radio"
+                            name="genres"
+                            value="Action"
+                            checked={formData.genres.includes('Action')}
+                            onChange={handleGenreChange}
+                        /> Action
+                    </div>
+                    <div>
+                        <input
+                            type="radio"
+                            name="genres"
+                            value="Adventure"
+                            checked={formData.genres.includes('Adventure')}
+                            onChange={handleGenreChange}
+                        /> Adventure
+                    </div>
+                    <div>
+                        <input
+                            type="radio"
+                            name="genres"
+                            value="Sci-Fi"
+                            checked={formData.genres.includes('Sci-Fi')}
+                            onChange={handleGenreChange}
+                        /> Sci-Fi
+                    </div>
                 </div>
+
                 {/* Poster URL Eingabefeld */}
                 <div>
                     <label>Poster URL:</label>
@@ -110,7 +152,7 @@ const AddMovieForm: React.FC = ( ) => {
                     />
                 </div>
                 {/* Submit Button */}
-                <button type="button" onClick={handleSubmit} >Add Movie</button>
+                <button type="button" onClick={handleSubmit}>Add Movie</button>
             </form>
         </div>
     );

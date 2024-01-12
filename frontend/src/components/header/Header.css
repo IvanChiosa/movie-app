@@ -45,6 +45,10 @@
   color: #9d703b; /* Farbe beim Hover */
 }
 
+.movie-app:hover {
+  color: #9d703b; /* Farbe beim Hover */
+}
+
 /* Stil für die Buttons */
 .navbar-collapse .ms-auto {
   display: flex;

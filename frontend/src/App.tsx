@@ -38,8 +38,8 @@ function App() {
             } else {
                 setReviews([]);
             }
-        } catch (error) {
-            console.error(error);
+        } catch{
+            console.error("Error");
         }
     };
 

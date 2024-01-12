@@ -156,7 +156,7 @@ const AddMovieForm: React.FC = ( ) => {
                     />
                 </div>
                 {/* Submit Button */}
-                <button type="button" onClick={handleSubmit}>Add Movie</button>
+                <button className="button-add" onClick={handleSubmit}>Add Movie</button>
             </form>
         </div>
     );

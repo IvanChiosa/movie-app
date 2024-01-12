@@ -22,8 +22,8 @@ const Header : React.FC = () => {
                         <NavLink className="nav-link" to="/watchList">Watch List</NavLink>
                     </Nav>
                     <div className="ms-auto navbar-row">
-                        <Button variant="outline-info" className="me-2">Login</Button>
-                        <Button variant="outline-info">Register</Button>
+                        <Button variant="outline-info" className="me-2, button-add">Login</Button>
+                        <Button variant="outline-info" className="button-add">Register</Button>
                     </div>
                 </Navbar.Collapse>
             </Container>

@@ -1,33 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import ReviewForm from '../reviewForm/ReviewForm';
 import axios from "axios";
-
-// Typdefinitionen für die Props
-interface Review {
-    id?: string;
-    body: string;
-}
-interface Movie {
-    poster?: string;
-}
-interface ReviewsProps {
-    getMovieData: (movieId: string | undefined) => void;
-    movie: Movie;
-    reviews: Review[];
-    setReviews: React.Dispatch<React.SetStateAction<Review[]>>;
-}
-
-const Reviews: React.FC<ReviewsProps> = ({ getMovieData, movie, reviews, setReviews }) => {
+import {Review, ReviewsProps} from "../../Interfaces.tsx";
+import "./Reviews.css";
+const Reviews: React.FC<ReviewsProps> = ({ getMovieData, movie , reviews, setReviews }) => {
     const revText = useRef<HTMLTextAreaElement>(null);
     const params = useParams<{ movieId: string }>();
     const movieId = params.movieId;
 
-
     useEffect(() => {
         getMovieData(movieId);
-    }, []);
+    }, [movieId]);
 
     const addReview = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -59,15 +44,14 @@ const Reviews: React.FC<ReviewsProps> = ({ getMovieData, movie, reviews, setRevi
 
     return (
         <Container>
-            <Row>
-                <Col><h3>Reviews</h3></Col>
-            </Row>
-            <Row className="mt-2">
+            <Row className="reviews" >
                 <Col>
-                    {/*// hier fehlt noch ein Bild*/}
                     <img src={movie?.poster} alt="" />
                 </Col>
                 <Col>
+                    <Row>
+                        <Col><h3>Reviews</h3></Col>
+                    </Row>
                     {
                         <>
                             <Row>
@@ -100,15 +84,55 @@ const Reviews: React.FC<ReviewsProps> = ({ getMovieData, movie, reviews, setRevi
                     }
                 </Col>
             </Row>
-            {/*<Row>*/}
-            {/*    <Col>*/}
-            {/*        <hr />*/}
-            {/*    </Col>*/}
-            {/*</Row>*/}
         </Container>
     )
-}
 
+    // return (
+    //     <Container>
+    //         <Row className="mt-2">
+    //             <Col>
+    //                 {/*// hier fehlt noch ein Bild*/}
+    //                 <img src={movie?.poster} alt="" />
+    //             </Col>
+    //             <Col>
+    //                 <Row>
+    //                     <Col><h3>Reviews</h3></Col>
+    //                 </Row>
+    //                 {
+    //                     <>
+    //                         <Row>
+    //                             <Col>
+    //                                 <ReviewForm handleSubmit={addReview} revText={revText} labelText = "Write a Review?" />
+    //                             </Col>
+    //                         </Row>
+    //                         <Row>
+    //                             <Col>
+    //                                 <hr />
+    //                             </Col>
+    //                         </Row>
+    //                     </>
+    //                 }
+    //                 {
+    //                     reviews?.map((r) => {
+    //                         return(
+    //                             <>
+    //                                 <Row>
+    //                                     <Col>{r.body}</Col>
+    //                                 </Row>
+    //                                 <Row>
+    //                                     <Col>
+    //                                         <hr />
+    //                                     </Col>
+    //                                 </Row>
+    //                             </>
+    //                         )
+    //                     })
+    //                 }
+    //             </Col>
+    //         </Row>
+    //     </Container>
+    // )
+}
 export default Reviews;
 
 

@@ -21,8 +21,9 @@ export interface Review {
 }
 
 export interface ReviewsProps {
-    getMovieData: () => void;
-    movies: Movie[];
+    getMovieData: (movieId: string | undefined) => void;
+    // getMovieData: () => void;
+    movie: Movie | undefined;
     reviews: Review[];
     setReviews: React.Dispatch<React.SetStateAction<Review[]>>;
 }

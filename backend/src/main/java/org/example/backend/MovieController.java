@@ -32,4 +32,17 @@ public class MovieController {
         return ResponseEntity.ok(savedMovie);
     }
 
+
+
+
+//    @Autowired
+//    public MovieController(MovieService movieService) {
+//        this.movieService = movieService;
+//    }
+
+    @GetMapping("/{imdbId}/reviewIds")
+        public List<Review> getReviewsForMovie(@PathVariable String imdbId) {
+        return movieService.getReviewsForMovie(imdbId);
+    }
+
 }

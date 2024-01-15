@@ -14,7 +14,6 @@ import NotFound from "./components/notFound/NotFound.tsx";
 import AddMovieForm from "./components/addMovie/AddMovieForm.tsx";
 // import Footer from "./components/footer/Footer.tsx";
 
-
 function App() {
     const [movies, setMovies] = useState<Movies[]>([]);
     const [movie, setMovie] = useState();
@@ -23,8 +22,7 @@ function App() {
     const getMovies = () => {
         axios.get("/api/v1/movies")
             .then(response => {
-                setMovies(response.data)
-                console.log(response.data)
+                setMovies(response.data);
             })
             .catch(error => console.log(error.message));
         console.log(movies)
@@ -33,10 +31,11 @@ function App() {
     const getMovieData = async (movieId: string | undefined) => {
         try {
             const response = await axios.get(`/api/v1/movies/${movieId}`);
+            console.log('Movie data:', response.data);
             const singleMovie = response.data;
             setMovie(singleMovie);
 
-            if (Array.isArray(singleMovie.reviews)) {
+            if (singleMovie && Array.isArray(singleMovie.reviews)) {
                 setReviews(singleMovie.reviews);
             } else {
                 setReviews([]);
@@ -71,3 +70,4 @@ function App() {
 }
 
 export default App
+

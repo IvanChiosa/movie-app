@@ -1,4 +1,5 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {useEffect, useState} from 'react';
 import axios from "axios";
 import {Movies} from "./Movies.ts";
@@ -11,6 +12,7 @@ import Reviews from "./components/reviews/Reviews.tsx";
 import {Review} from "./Interfaces.tsx";
 import NotFound from "./components/notFound/NotFound.tsx";
 import AddMovieForm from "./components/addMovie/AddMovieForm.tsx";
+import Footer from "./components/footer/Footer.tsx";
 
 function App() {
     const [movies, setMovies] = useState<Movies[]>([]);
@@ -55,11 +57,12 @@ function App() {
                     <Route path="/" element={<Layout/>}>
                         <Route path="/" element={<Home movies={movies}/>}/>
                         <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}/>
-                        <Route path="/Reviews/:movieId" element={<Reviews getMovieData={getMovieData} movies={movie} reviews={reviews} setReviews={setReviews}/>}/>
+                        <Route path="/Reviews/:movieId" element={<Reviews getMovieData={getMovieData} movie={movie} reviews={reviews} setReviews={setReviews}/>}/>
                         <Route path="*" element={<NotFound />}/>
                         <Route path="/add" element={<AddMovieForm/>}/>
                     </Route>
                 </Routes>
+                <Footer/>
             </div>
         </>
     )

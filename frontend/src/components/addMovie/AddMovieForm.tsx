@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Stellen Sie sicher, dass axios importiert ist
+import "./AddMovieForm.css";
 
 // Definition des MovieFormData Interfaces
 interface MovieFormData {
@@ -66,12 +67,13 @@ const AddMovieForm: React.FC = ( ) => {
 
     // Das Formular-Rendering
     return (
-        <div>
-            <h2>Add a New Movie</h2>
+        <div className="add-new-movie">
+
             <form>
+                <h2>Add a New Movie</h2>
                 {/* IMDb ID Eingabefeld */}
                 <div>
-                    <label>IMDb ID:</label>
+                    <label>IMDB ID:</label>
                     <input
                         type="text"
                         name="imdbId"
@@ -112,7 +114,7 @@ const AddMovieForm: React.FC = ( ) => {
                 {/* Genres Eingabefeld */}
                 <div>
                     <label>Genres:</label>
-                    <div>
+                    <div className="gen">
                         <input
                             type="radio"
                             name="genres"
@@ -121,7 +123,7 @@ const AddMovieForm: React.FC = ( ) => {
                             onChange={handleGenreChange}
                         /> Action
                     </div>
-                    <div>
+                    <div className="gen">
                         <input
                             type="radio"
                             name="genres"
@@ -130,7 +132,7 @@ const AddMovieForm: React.FC = ( ) => {
                             onChange={handleGenreChange}
                         /> Adventure
                     </div>
-                    <div>
+                    <div className="gen" >
                         <input
                             type="radio"
                             name="genres"
@@ -140,6 +142,8 @@ const AddMovieForm: React.FC = ( ) => {
                         /> Sci-Fi
                     </div>
                 </div>
+
+                <br/>
 
                 {/* Poster URL Eingabefeld */}
                 <div>
@@ -152,7 +156,7 @@ const AddMovieForm: React.FC = ( ) => {
                     />
                 </div>
                 {/* Submit Button */}
-                <button type="button" onClick={handleSubmit}>Add Movie</button>
+                <button className="button-add" onClick={handleSubmit}>Add Movie</button>
             </form>
         </div>
     );

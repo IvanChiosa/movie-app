@@ -5,9 +5,13 @@
   align-items: center; /* Zentriert Elemente vertikal in der Navbar */
   justify-content: space-between; /* Erzeugt gleichmäßigen Raum zwischen den Hauptelementen */
 }
+.my-nav {
 
+  padding-top: 0;
+}
 /* Stil für den Container */
 .container.fluid {
+  padding-top: 0;
   display: flex;
   flex-wrap: wrap; /* Erlaubt Umbrüche für kleinere Bildschirme */
   width: 100%;
@@ -62,4 +66,14 @@ button {
 button:hover {
   color: #fff; /* Farbe beim Hover */
   background-color: #17a2b8; /* Hintergrundfarbe beim Hover */
+}
+.button-add {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
 }

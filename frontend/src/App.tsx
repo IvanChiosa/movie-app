@@ -14,6 +14,7 @@ import NotFound from "./components/notFound/NotFound.tsx";
 import AddMovieForm from "./components/addMovie/AddMovieForm.tsx";
 import Footer from "./components/footer/Footer.tsx";
 
+
 function App() {
     const [movies, setMovies] = useState<Movies[]>([]);
     const [movie, setMovie] = useState();
@@ -62,6 +63,7 @@ function App() {
                         <Route path="/add" element={<AddMovieForm/>}/>
                     </Route>
                 </Routes>
+
                 <Footer/>
             </div>
         </>

@@ -12,6 +12,7 @@ import Reviews from "./components/reviews/Reviews.tsx";
 import {Review} from "./Interfaces.tsx";
 import NotFound from "./components/notFound/NotFound.tsx";
 import AddMovieForm from "./components/addMovie/AddMovieForm.tsx";
+import Footer from "./components/footer/Footer.tsx";
 
 function App() {
     const [movies, setMovies] = useState<Movies[]>([]);
@@ -61,6 +62,7 @@ function App() {
                         <Route path="/add" element={<AddMovieForm/>}/>
                     </Route>
                 </Routes>
+                <Footer/>
             </div>
         </>
     )

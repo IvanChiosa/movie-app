@@ -5,9 +5,13 @@
   align-items: center; /* Zentriert Elemente vertikal in der Navbar */
   justify-content: space-between; /* Erzeugt gleichmäßigen Raum zwischen den Hauptelementen */
 }
+.my-nav {
 
+  padding-top: 0;
+}
 /* Stil für den Container */
 .container.fluid {
+  padding-top: 0;
   display: flex;
   flex-wrap: wrap; /* Erlaubt Umbrüche für kleinere Bildschirme */
   width: 100%;

@@ -1,10 +1,11 @@
-package org.example.backend;
+package org.example.backend.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
+import org.example.backend.model.Review;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
@@ -26,6 +27,7 @@ public class Movie {
     private String poster;
     private List<String> genres;
     private List<String> backdrops;
+//    private List<String> reviewIds;
 
     @DocumentReference
     private List<Review> reviewIds;

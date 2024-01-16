@@ -10,9 +10,25 @@ const Reviews: React.FC<ReviewsProps> = ({ getMovieData, movie , reviews, setRev
     const params = useParams<{ movieId: string }>();
     const movieId = params.movieId;
 
+    // useEffect(() => {
+    //     getMovieData(movieId);
+    // }, [movieId]);
+
     useEffect(() => {
         getMovieData(movieId);
+        fetchReviews().then(r => console.log(r));
     }, [movieId]);
+
+    const fetchReviews = async () => {
+        try {
+            const response = await axios.get<Review[]>(`/api/v1/movies/${movieId}/reviews`);
+            setReviews(response.data);
+        } catch (error) {
+            console.error('Fehler beim Laden der Reviews:', error);
+        }
+    };
+
+
 
     const addReview = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

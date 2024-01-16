@@ -14,6 +14,7 @@ export interface HeroProps {
     movies: Movie[];
 }
 
+
 export interface Review {
     reviewIds: string;
     id: string;

@@ -12,6 +12,7 @@ import Reviews from "./components/reviews/Reviews.tsx";
 import {Review} from "./Interfaces.tsx";
 import NotFound from "./components/notFound/NotFound.tsx";
 import AddMovieForm from "./components/addMovie/AddMovieForm.tsx";
+import MovieList from "./components/deleteMovie/MovieList.tsx";
 // import Footer from "./components/footer/Footer.tsx";
 
 function App() {
@@ -45,6 +46,15 @@ function App() {
         }
     };
 
+    // const onDeletionSuccess = () => {
+    //     console.log('Film erfolgreich gelöscht');
+    // };
+    //
+    // const onDeletionFailure = () => {
+    //     console.log('Fehler beim Löschen des Films');
+    // };
+
+
     useEffect(() => {
         getMovies();
     }, []);
@@ -59,7 +69,13 @@ function App() {
                         <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}/>
                         <Route path="/Reviews/:movieId" element={<Reviews getMovieData={getMovieData} movie={movie} reviews={reviews} setReviews={setReviews}/>}/>
                         <Route path="*" element={<NotFound />}/>
+                        {/*<Route path="/movie/:movieId" element={<DeleteMovieButton movieId={''} onDeletionSuccess={function(): void {*/}
+                        {/*    throw new Error('Function not implemented.');*/}
+                        {/*} } onDeletionFailure={function(): void {*/}
+                        {/*    throw new Error('Function not implemented.');*/}
+                        {/*} } />} />*/}
                         <Route path="/add" element={<AddMovieForm/>}/>
+                        <Route path="/movie-list" element={<MovieList />}/>;
                     </Route>
                 </Routes>
 
@@ -70,4 +86,7 @@ function App() {
 }
 
 export default App
+
+
+
 

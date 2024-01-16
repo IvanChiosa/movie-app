@@ -1,5 +1,7 @@
-package org.example.backend;
+package org.example.backend.controller;
 
+import org.example.backend.model.Review;
+import org.example.backend.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

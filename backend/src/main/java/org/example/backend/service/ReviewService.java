@@ -1,6 +1,9 @@
-package org.example.backend;
+package org.example.backend.service;
 
 import org.bson.types.ObjectId;
+import org.example.backend.model.Movie;
+import org.example.backend.model.Review;
+import org.example.backend.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

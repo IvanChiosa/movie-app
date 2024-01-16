@@ -1,6 +1,8 @@
-package org.example.backend;
+package org.example.backend.controller;
 
-import org.bson.types.ObjectId;
+import org.example.backend.model.Movie;
+import org.example.backend.service.MovieService;
+import org.example.backend.model.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

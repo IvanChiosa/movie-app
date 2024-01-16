@@ -10,6 +10,7 @@ interface MovieFormData {
     trailerLink: string;
     genres: string[];
     poster: string;
+    backdrops: string[];
 }
 
 const AddMovieForm: React.FC = ( ) => {
@@ -21,17 +22,21 @@ const AddMovieForm: React.FC = ( ) => {
         trailerLink: '',
         genres: [],
         poster: '',
+        backdrops: []
     };
 
     // State für die Verwaltung der Formulardaten
     const [formData, setFormData] = useState<MovieFormData>(initialFormData);
+
     // Behandlung der Änderungen in den Formularfeldern
-    const handleInputChange =(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         if (name === 'genres') {
-            // Trennen Sie die Genres durch Kommas und entfernen Sie Leerzeichen
             const genresArray = value.split(',').map(genre => genre.trim());
             setFormData({ ...formData, genres: genresArray });
+        } else if (name === 'backdrops') {
+            const backdropsArray = value.split(',').map(backdrop => backdrop.trim());
+            setFormData({ ...formData, backdrops: backdropsArray });
         } else {
             setFormData({ ...formData, [name]: value });
         }
@@ -132,14 +137,14 @@ const AddMovieForm: React.FC = ( ) => {
                             onChange={handleGenreChange}
                         /> Adventure
                     </div>
-                    <div className="gen" >
+                    <div className="gen">
                         <input
                             type="radio"
                             name="genres"
-                            value="Sci-Fi"
-                            checked={formData.genres.includes('Sci-Fi')}
+                            value="Comedy"
+                            checked={formData.genres.includes('Comedy')}
                             onChange={handleGenreChange}
-                        /> Sci-Fi
+                        /> Comedy
                     </div>
                 </div>
 
@@ -155,6 +160,16 @@ const AddMovieForm: React.FC = ( ) => {
                         onChange={handleInputChange}
                     />
                 </div>
+                <div>
+                    <label>Backdrop URLs:</label>
+                    <input
+                        type="text"
+                        name="backdrops"
+                        value={formData.backdrops.join(", ")}
+                        onChange={handleInputChange}
+                    />
+                </div>
+
                 {/* Submit Button */}
                 <button className="button-add" onClick={handleSubmit}>Add Movie</button>
             </form>

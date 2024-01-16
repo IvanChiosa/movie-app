@@ -1,11 +1,11 @@
-package org.example.backend;
+package org.example.backend.service;
 
-import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.example.backend.model.Movie;
+import org.example.backend.repository.MovieRepository;
+import org.example.backend.model.Review;
+import org.example.backend.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +40,8 @@ public class MovieService {
         List<Review> reviewIds = movie.getReviewIds(); // Dies sollte eine List<String> sein
         return reviewRepository.findAllById(reviewIds); // Hier geben Sie die List<String> weiter
     }
+
+
 
 //    @Autowired
 //    public MovieService(MovieRepository movieRepository, ReviewRepository reviewRepository) {

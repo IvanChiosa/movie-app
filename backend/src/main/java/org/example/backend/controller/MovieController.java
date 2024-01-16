@@ -34,6 +34,19 @@ public class MovieController {
         return ResponseEntity.ok(savedMovie);
     }
 
+    @DeleteMapping("/{movieId}")
+    public ResponseEntity<?> deleteMovie(@PathVariable String movieId) {
+        boolean isDeleted = movieService.deleteMovie(movieId);
+
+        if (isDeleted) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+
 
 
 

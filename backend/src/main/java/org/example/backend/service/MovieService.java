@@ -1,9 +1,11 @@
 package org.example.backend.service;
 
+import org.bson.types.ObjectId;
 import org.example.backend.model.Movie;
 import org.example.backend.repository.MovieRepository;
 import org.example.backend.model.Review;
 import org.example.backend.repository.ReviewRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +16,6 @@ public class MovieService {
 
     private final MovieRepository movieRepository;
     private final ReviewRepository reviewRepository;
-
-
-
     public List<Movie> allMovies() {
         return movieRepository.findAll();
     }
@@ -28,6 +27,19 @@ public class MovieService {
     public Movie saveMovie(Movie movie) {
         return movieRepository.insert(movie);
     }
+
+
+    public boolean deleteMovie(String movieId) {
+        try {
+            ObjectId objectId = new ObjectId(movieId);
+            movieRepository.deleteById(objectId);
+            return true;
+        } catch (IllegalArgumentException | EmptyResultDataAccessException e) {
+            // Ungültige ObjectId
+            return false;
+        }
+    }
+
 
 
     public MovieService(MovieRepository movieRepository, ReviewRepository reviewRepository) {

@@ -19,7 +19,7 @@ import java.util.List;
 @Document(collection = "movies")
 public class Movie {
     @Id
-    private ObjectId id;
+    private String id;
     private String imdbId;
     private String title;
     private String releaseDate;

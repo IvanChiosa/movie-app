@@ -13,6 +13,8 @@ import {Review} from "./Interfaces.tsx";
 import NotFound from "./components/notFound/NotFound.tsx";
 import AddMovieForm from "./components/addMovie/AddMovieForm.tsx";
 import MovieList from "./components/movieListDeleteUpdate/MovieList.tsx";
+import Footer from "./components/footer/Footer.tsx";
+
 // import Footer from "./components/footer/Footer.tsx";
 
 function App() {
@@ -41,19 +43,10 @@ function App() {
             } else {
                 setReviews([]);
             }
-        } catch{
+        } catch {
             console.error("Error");
         }
     };
-
-    // const onDeletionSuccess = () => {
-    //     console.log('Film erfolgreich gelöscht');
-    // };
-    //
-    // const onDeletionFailure = () => {
-    //     console.log('Fehler beim Löschen des Films');
-    // };
-
 
     useEffect(() => {
         getMovies();
@@ -67,19 +60,15 @@ function App() {
                     <Route path="/" element={<Layout/>}>
                         <Route path="/" element={<Home movies={movies}/>}/>
                         <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}/>
-                        <Route path="/Reviews/:movieId" element={<Reviews getMovieData={getMovieData} movie={movie} reviews={reviews} setReviews={setReviews}/>}/>
-                        <Route path="*" element={<NotFound />}/>
-                        {/*<Route path="/movie/:movieId" element={<DeleteMovieButton movieId={''} onDeletionSuccess={function(): void {*/}
-                        {/*    throw new Error('Function not implemented.');*/}
-                        {/*} } onDeletionFailure={function(): void {*/}
-                        {/*    throw new Error('Function not implemented.');*/}
-                        {/*} } />} />*/}
+                        <Route path="/Reviews/:movieId"
+                               element={<Reviews getMovieData={getMovieData} movie={movie} reviews={reviews}
+                                                 setReviews={setReviews}/>}/>
                         <Route path="/add" element={<AddMovieForm/>}/>
-                        <Route path="/movie-list" element={<MovieList />}/>;
+                        <Route path="/movie-list" element={<MovieList/>}/>;
+                        <Route path="*" element={<NotFound/>}/>
                     </Route>
                 </Routes>
-
-                {/*<Footer/>*/}
+                <Footer/>
             </div>
         </>
     )

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/v1/movies")
 public class MovieController {
@@ -33,6 +34,13 @@ public class MovieController {
         return ResponseEntity.ok(savedMovie);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Movie> updateMovie(@PathVariable String id, @RequestBody Movie movieDetails) {
+        return movieService.updateMovie(id, movieDetails)
+                .map(ResponseEntity::ok) // Bei Erfolg, sende den aktualisierten Film mit Status 200 OK zurück
+                .orElse(ResponseEntity.notFound().build()); // Wenn nicht gefunden, sende 404 Not Found
+    }
+
     @DeleteMapping("/{movieId}")
     public ResponseEntity<?> deleteMovie(@PathVariable String movieId) {
         boolean isDeleted = movieService.deleteMovie(movieId);
@@ -45,18 +53,13 @@ public class MovieController {
     }
 
 
-
-
-
-
-
 //    @Autowired
 //    public MovieController(MovieService movieService) {
 //        this.movieService = movieService;
 //    }
 
     @GetMapping("/{imdbId}/reviewIds")
-        public List<Review> getReviewsForMovie(@PathVariable String imdbId) {
+    public List<Review> getReviewsForMovie(@PathVariable String imdbId) {
         return movieService.getReviewsForMovie(imdbId);
     }
 

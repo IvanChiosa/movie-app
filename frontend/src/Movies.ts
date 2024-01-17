@@ -7,5 +7,5 @@ export type Movies = {
     poster: string,
     genres: string,
     backdrops: string,
-    reviewIds: string
+     reviewIds: string
 }

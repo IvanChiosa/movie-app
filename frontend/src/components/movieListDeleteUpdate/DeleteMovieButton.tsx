@@ -7,12 +7,12 @@ interface DeleteMovieProps {
     onDeletionFailure: () => void;
 }
 
-const DeleteMovieButton: React.FC<DeleteMovieProps> = ({ movieId, onDeletionSuccess, onDeletionFailure }) => {
+const DeleteMovieButton: React.FC<DeleteMovieProps> = ({movieId, onDeletionSuccess, onDeletionFailure}) => {
     const handleDelete = async () => {
         console.log('movieId:', movieId);
         try {
             // Senden Sie die DELETE-Anfrage an Ihre API unter Verwendung des movieId-Parameters
-           const response = await axios.delete(`/api/v1/movies/${movieId}`);
+            const response = await axios.delete(`/api/v1/movies/${movieId}`);
             console.log('Löschen erfolgreich:', response);
             onDeletionSuccess();
         } catch (error) {
@@ -20,19 +20,6 @@ const DeleteMovieButton: React.FC<DeleteMovieProps> = ({ movieId, onDeletionSucc
             console.error('Fehler beim Löschen des Films', error);
             onDeletionFailure();
         }
-        // try {
-        //     // Überprüfen Sie, ob movieId definiert ist, bevor Sie die DELETE-Anfrage senden
-        //     if (movieId) {
-        //         await axios.delete(`/api/v1/movies/${movieId}`);
-        //         onDeletionSuccess();
-        //     } else {
-        //         console.error('Ungültige movieId');
-        //         onDeletionFailure();
-        //     }
-        // } catch (error) {
-        //     console.error('Fehler beim Löschen des Films', error);
-        //     onDeletionFailure();
-        // }
     };
 
     return (

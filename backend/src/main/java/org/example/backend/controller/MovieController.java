@@ -34,9 +34,9 @@ public class MovieController {
         return ResponseEntity.ok(savedMovie);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Movie> updateMovie(@PathVariable String id, @RequestBody Movie movieDetails) {
-        return movieService.updateMovie(id, movieDetails)
+    @PutMapping("/{movieId}")
+    public ResponseEntity<Movie> updateMovie(@PathVariable String movieId, @RequestBody Movie movieDetails) {
+        return movieService.updateMovie(movieId, movieDetails)
                 .map(ResponseEntity::ok) // Bei Erfolg, sende den aktualisierten Film mit Status 200 OK zurück
                 .orElse(ResponseEntity.notFound().build()); // Wenn nicht gefunden, sende 404 Not Found
     }

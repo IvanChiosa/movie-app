@@ -1,31 +1,31 @@
-import React from 'react';
-import axios from 'axios';
+import UpdateMovieForm from "./UpdateMovieForm.tsx";
+import {useState} from "react";
+import {Movie} from "./UpdateMovieForm.tsx"
 
-interface UpdateMovieProps {
-    movieId: string;
+
+interface UpdateMovieButtonProps {
+    movie: Movie;
     onUpdateSuccess: () => void;
     onUpdateFailure: () => void;
 }
 
-const UpdateMovieButton: React.FC<UpdateMovieProps> = ({ movieId, onUpdateSuccess, onUpdateFailure }) => {
-    const handleUpdate = async () => {
-        try {
-            // Hier können Sie den Update-Endpunkt anpassen und die gewünschten Daten senden
-            const updatedData = {
-                // Fügen Sie hier die zu aktualisierenden Daten hinzu
-            };
+const UpdateMovieButton: React.FC<UpdateMovieButtonProps> = ({ movie, onUpdateSuccess, onUpdateFailure }) => {
+    const [isEditing, setIsEditing] = useState(false);
 
-            await axios.put(`/api/v1/movies/${movieId}`, updatedData);
-            onUpdateSuccess();
-        } catch (error) {
-            console.error('Fehler beim Aktualisieren des Films', error);
-            onUpdateFailure();
-        }
-    };
+    const toggleEditing = () => setIsEditing(!isEditing);
 
     return (
-        <button onClick={handleUpdate}>Film aktualisieren</button>
+        <>
+            <button onClick={toggleEditing}>Film bearbeiten</button>
+            {isEditing && (
+                <UpdateMovieForm
+                    movie={movie}
+                    onUpdateSuccess={onUpdateSuccess}
+                    onUpdateFailure={onUpdateFailure}
+                    onFormClose={toggleEditing}
+                />
+            )}
+        </>
     );
 };
-
 export default UpdateMovieButton;

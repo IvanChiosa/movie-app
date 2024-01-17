@@ -14,9 +14,8 @@ interface Movie {
     releaseDate: string;
     trailerLink: string;
     poster: string;
-    genres: string;
-    backdrops: string;
-    // reviewIds: string;
+    genres: string[];
+    backdrops: string[];
 }
 
 const MovieList: React.FC = () => {
@@ -32,10 +31,8 @@ const MovieList: React.FC = () => {
                 console.error('Fehler beim Laden der Filme', error);
             }
         };
-
-        fetchMovies();
+        fetchMovies().then(r => console.log(r));
     }, []);
-    console.log(movies)
 
     const handleUpdateSuccess = () => {
         console.log("Der Film wurde erfolgreich aktualisiert.");
@@ -59,11 +56,9 @@ const MovieList: React.FC = () => {
                                 <p>Veröffentlichungsdatum: {movie.releaseDate}</p>
                                 <p>Trailer Link: {movie.trailerLink}</p>
                                 <p>Genres: {movie.genres}</p>
-                                {/* Überprüfen Sie, ob der Inhalt erweitert werden soll */}
                                 {expanded ? (
                                     <div>
                                         <p>Backdrops: {movie.backdrops}</p>
-                                        {/* Weitere Informationen */}
                                         <button
                                             className="btn btn-link"
                                             onClick={() => setExpanded(false)}
@@ -72,7 +67,6 @@ const MovieList: React.FC = () => {
                                         </button>
                                     </div>
                                 ) : (
-                                    // "Mehr anzeigen"-Link oder Button
                                     <button
                                         className="btn btn-link"
                                         onClick={() => setExpanded(true)}
@@ -83,6 +77,23 @@ const MovieList: React.FC = () => {
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
+                            <UpdateMovieButton
+                                movie={movie}
+                                // onUpdateSuccess={handleUpdateSuccess}
+                                onUpdateFailure={handleUpdateFailure}
+                                onUpdateSuccess={() => {
+                                    handleUpdateSuccess
+                                    const fetchMovies = async () => {
+                                        try {
+                                            const response = await axios.get('/api/v1/movies');
+                                            setMovies(response.data);
+                                        } catch (error) {
+                                            console.error('Fehler beim Laden der Filme', error);
+                                        }
+                                    };
+                                    fetchMovies().then(r => console.log(r));
+                                }}
+                            />
                             <DeleteMovieButton
                                 movieId={movie.id}
                                 onDeletionSuccess={() => {
@@ -94,60 +105,16 @@ const MovieList: React.FC = () => {
                                             console.error('Fehler beim Laden der Filme', error);
                                         }
                                     };
-                                    fetchMovies();
+                                    fetchMovies().then(r => console.log(r));
                                 }}
                                 onDeletionFailure={() => {
                                 }}
                             />
-                            {/*<div>*/}
-                                {/*{movies.map((movie) => (*/}
-                                {/*    <div key={movie.id} style={{marginBottom: "20px"}}>*/}
-                                {/*        <h3>{movie.title}</h3>*/}
-                                {/*        <p><strong>IMDb ID:</strong> {movie.imdbId}</p>*/}
-                                {/*        <p><strong>Veröffentlichungsdatum:</strong> {movie.releaseDate}</p>*/}
-                                {/*        <p><strong>Trailer Link:</strong> <a href={movie.trailerLink} target="_blank"*/}
-                                {/*                                             rel="noopener noreferrer">Trailer*/}
-                                {/*            ansehen</a></p>*/}
-                                {/*        <p><strong>Poster:</strong> <img src={movie.poster}*/}
-                                {/*                                         alt={movie.title + " Poster"}*/}
-                                {/*                                         style={{maxWidth: "200px"}}/></p>*/}
-                                {/*        <p><strong>Genres:</strong> {movie.genres}</p>*/}
-                                {/*        <p><strong>Backdrops:</strong> {movie.backdrops}</p>*/}
-                                {/*        /!* Hier können Sie weitere Eigenschaften hinzufügen, wenn nötig *!/*/}
-                                        <UpdateMovieButton
-                                            movie={movie}
-                                            // onUpdateSuccess={handleUpdateSuccess}
-                                            onUpdateFailure={handleUpdateFailure}
-                                            onUpdateSuccess={() => {
-                                                handleUpdateSuccess
-                                                const fetchMovies = async () => {
-                                                    try {
-                                                        const response = await axios.get('/api/v1/movies');
-                                                        setMovies(response.data);
-                                                    } catch (error) {
-                                                        console.error('Fehler beim Laden der Filme', error);
-                                                    }
-                                                };
-                                                fetchMovies();
-                                            }}
-                                        />
-
-                                {/*))}*/}
-                            {/*</div>*/}
-                            {/*<UpdateMovieButton movie={ } onUpdateSuccess={} onUpdateFailure={} />*/}
-                            {/*<UpdateMovieButton*/}
-                            {/*    movieId={movie.id}*/}
-                            {/*    onUpdateSuccess={() => {*/}
-                            {/*    }}*/}
-                            {/*    onUpdateFailure={() => {*/}
-                            {/*    }}*/}
-                            {/*/>*/}
                         </Card.Footer>
                     </Card>
                 </Col>
             ))}
         </Row>
-
     );
 };
 

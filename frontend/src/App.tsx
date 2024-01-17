@@ -2,7 +2,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useEffect, useState} from 'react';
 import axios from "axios";
-import {Movies} from "./Movies.ts";
+import {Movie} from "./Interfaces.tsx";
 import {Routes, Route} from "react-router-dom";
 import Layout from "./components/Layout.tsx";
 import Home from "./components/home/Home.tsx";
@@ -16,7 +16,7 @@ import MovieList from "./components/movieListDeleteUpdate/MovieList.tsx";
 // import Footer from "./components/footer/Footer.tsx";
 
 function App() {
-    const [movies, setMovies] = useState<Movies[]>([]);
+    const [movies, setMovies] = useState<Movie[]>([]);
     const [movie, setMovie] = useState();
     const [reviews, setReviews] = useState<Review[]>([]);
 

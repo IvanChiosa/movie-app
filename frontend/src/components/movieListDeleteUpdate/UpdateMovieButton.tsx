@@ -1,7 +1,6 @@
 import UpdateMovieForm from "./UpdateMovieForm.tsx";
-import {useState} from "react";
+import React, {useState} from "react";
 import {Movie} from "./UpdateMovieForm.tsx"
-
 
 interface UpdateMovieButtonProps {
     movie: Movie;
@@ -9,11 +8,9 @@ interface UpdateMovieButtonProps {
     onUpdateFailure: () => void;
 }
 
-const UpdateMovieButton: React.FC<UpdateMovieButtonProps> = ({ movie, onUpdateSuccess, onUpdateFailure }) => {
+const UpdateMovieButton: React.FC<UpdateMovieButtonProps> = ({movie, onUpdateSuccess, onUpdateFailure}) => {
     const [isEditing, setIsEditing] = useState(false);
-
     const toggleEditing = () => setIsEditing(!isEditing);
-
     return (
         <>
             <button onClick={toggleEditing}>Film bearbeiten</button>

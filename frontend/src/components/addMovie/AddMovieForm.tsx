@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Stellen Sie sicher, dass axios importiert ist
+import axios from 'axios';
 import "./AddMovieForm.css";
 
-// Definition des MovieFormData Interfaces
 interface MovieFormData {
     imdbId: string;
     title: string;
     releaseDate: string;
     trailerLink: string;
-    genres: string[];
     poster: string;
+    genres: string[];
     backdrops: string[];
 }
 
@@ -20,8 +19,8 @@ const AddMovieForm: React.FC = ( ) => {
         title: '',
         releaseDate: '',
         trailerLink: '',
-        genres: [],
         poster: '',
+        genres: [],
         backdrops: []
     };
 
@@ -58,18 +57,6 @@ const AddMovieForm: React.FC = ( ) => {
     const handleGenreChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, genres: [e.target.value] });
     };
-
-    // const handleGenreChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     const { value, checked } = e.target;
-    //
-    //     // Aktualisieren des Genres basierend auf der Auswahl
-    //     if (checked) {
-    //         setFormData({ ...formData, genres: [...formData.genres, value] });
-    //     } else {
-    //         setFormData({ ...formData, genres: formData.genres.filter(genre => genre !== value) });
-    //     }
-    // };
-
     // Das Formular-Rendering
     return (
         <div className="add-new-movie">

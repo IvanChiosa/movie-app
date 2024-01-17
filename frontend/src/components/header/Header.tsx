@@ -20,7 +20,6 @@ const Header : React.FC = () => {
                         <NavLink className="nav-link" to="/">Home</NavLink>
                         <NavLink className="nav-link" to="/add">Add new Movies</NavLink>
                         <NavLink className="nav-link" to="/movie-list">Movie List</NavLink>
-                        {/*<NavLink className="nav-link" to="/{movieId}">Delete</NavLink>*/}
                     </Nav>
                     <div className="ms-auto navbar-row">
                         <Button variant="outline-info" className="me-2, button-add">Login</Button>

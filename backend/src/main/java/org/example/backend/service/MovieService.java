@@ -16,6 +16,7 @@ public class MovieService {
 
     private final MovieRepository movieRepository;
     private final ReviewRepository reviewRepository;
+
     public List<Movie> allMovies() {
         return movieRepository.findAll();
     }
@@ -28,6 +29,26 @@ public class MovieService {
         return movieRepository.insert(movie);
     }
 
+
+    public Optional<Movie> updateMovie(String id, Movie movieDetails) {
+        try {
+            ObjectId objectId = new ObjectId(id); // Konvertiere den String in ObjectId
+            return movieRepository.findById(objectId)
+                    .map(movie -> {
+                        movie.setImdbId(movieDetails.getImdbId());
+                        movie.setTitle(movieDetails.getTitle());
+                        movie.setReleaseDate(movieDetails.getReleaseDate());
+                        movie.setTrailerLink(movieDetails.getTrailerLink());
+                        movie.setPoster(movieDetails.getPoster());
+                        movie.setGenres(movieDetails.getGenres());
+                        movie.setBackdrops(movieDetails.getBackdrops());
+
+                        return movieRepository.save(movie);
+                    });
+        } catch (IllegalArgumentException e) {
+            return Optional.empty();
+        }
+    }
 
     public boolean deleteMovie(String movieId) {
         try {
@@ -42,17 +63,18 @@ public class MovieService {
 
 
 
+
     public MovieService(MovieRepository movieRepository, ReviewRepository reviewRepository) {
         this.movieRepository = movieRepository;
         this.reviewRepository = reviewRepository;
     }
+
     public List<Review> getReviewsForMovie(String imdbId) {
         Movie movie = movieRepository.findMovieByImdbId(imdbId)
                 .orElseThrow(() -> new RuntimeException("Film nicht gefunden"));
         List<Review> reviewIds = movie.getReviewIds(); // Dies sollte eine List<String> sein
         return reviewRepository.findAllById(reviewIds); // Hier geben Sie die List<String> weiter
     }
-
 
 
 //    @Autowired
@@ -73,7 +95,6 @@ public class MovieService {
 //        }
 //        return new ArrayList<>();
 //    }
-
 
 
 }

@@ -12,7 +12,7 @@ import Reviews from "./components/reviews/Reviews.tsx";
 import {Review} from "./Interfaces.tsx";
 import NotFound from "./components/notFound/NotFound.tsx";
 import AddMovieForm from "./components/addMovie/AddMovieForm.tsx";
-import MovieList from "./components/deleteMovie/MovieList.tsx";
+import MovieList from "./components/movieListDeleteUpdate/MovieList.tsx";
 // import Footer from "./components/footer/Footer.tsx";
 
 function App() {

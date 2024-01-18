@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface Movie {
     _id: string,
     imdbId: string,

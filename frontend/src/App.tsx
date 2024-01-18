@@ -15,8 +15,6 @@ import AddMovieForm from "./components/addMovie/AddMovieForm.tsx";
 import MovieList from "./components/movieListDeleteUpdate/MovieList.tsx";
 import Footer from "./components/footer/Footer.tsx";
 
-// import Footer from "./components/footer/Footer.tsx";
-
 function App() {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [movie, setMovie] = useState();

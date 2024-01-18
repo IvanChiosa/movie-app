@@ -6,16 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCirclePlay} from "@fortawesome/free-solid-svg-icons";
 import {Link, useNavigate} from "react-router-dom";
 import Button from "react-bootstrap/Button";
-
-// interface Movie {
-//     title: string;
-//     description: string;
-//     poster: string;
-// }
-//
-// interface HeroProps {
-//     moviess: Movie[];
-// }
+import React from "react";
 
 const Hero: React.FC<HeroProps> = ({movies}) => {
 

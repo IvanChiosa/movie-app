@@ -43,6 +43,7 @@ const MovieList: React.FC = () => {
         console.error("Fehler beim Aktualisieren des Films:", error);
         // Fehlerbehandlung hier
     };
+
     return (
         <Row xs={1} md={2} lg={3} className="movie-row">
             {movies.map((movie) => (

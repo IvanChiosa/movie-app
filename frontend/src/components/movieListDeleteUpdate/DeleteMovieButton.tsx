@@ -21,10 +21,8 @@ const DeleteMovieButton: React.FC<DeleteMovieProps> = ({movieId, onDeletionSucce
             onDeletionFailure();
         }
     };
-
     return (
         <button onClick={handleDelete}>Film löschen Ivan</button>
     );
 };
-
 export default DeleteMovieButton;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import "./AddMovieForm.css";
 
@@ -12,7 +12,7 @@ interface MovieFormData {
     backdrops: string[];
 }
 
-const AddMovieForm: React.FC = ( ) => {
+const AddMovieForm: React.FC = () => {
     // Initialisierung des Formulars mit leeren Werten
     const initialFormData: MovieFormData = {
         imdbId: '',
@@ -29,15 +29,15 @@ const AddMovieForm: React.FC = ( ) => {
 
     // Behandlung der Änderungen in den Formularfeldern
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         if (name === 'genres') {
             const genresArray = value.split(',').map(genre => genre.trim());
-            setFormData({ ...formData, genres: genresArray });
+            setFormData({...formData, genres: genresArray});
         } else if (name === 'backdrops') {
             const backdropsArray = value.split(',').map(backdrop => backdrop.trim());
-            setFormData({ ...formData, backdrops: backdropsArray });
+            setFormData({...formData, backdrops: backdropsArray});
         } else {
-            setFormData({ ...formData, [name]: value });
+            setFormData({...formData, [name]: value});
         }
     };
 
@@ -45,7 +45,7 @@ const AddMovieForm: React.FC = ( ) => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response= await axios.post('/api/v1/movies/add', formData);
+            const response = await axios.post('/api/v1/movies/add', formData);
             // Optional: Aktualisieren der Filmliste, falls erforderlich
             setFormData(initialFormData); // Zurücksetzen des Formulars nach dem Senden
             console.log(response)
@@ -55,8 +55,9 @@ const AddMovieForm: React.FC = ( ) => {
     };
 
     const handleGenreChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData({ ...formData, genres: [e.target.value] });
+        setFormData({...formData, genres: [e.target.value]});
     };
+
     // Das Formular-Rendering
     return (
         <div className="add-new-movie">
@@ -163,5 +164,4 @@ const AddMovieForm: React.FC = ( ) => {
         </div>
     );
 };
-
 export default AddMovieForm;

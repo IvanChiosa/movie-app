@@ -14,7 +14,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/movies")
 public class MovieController {
-
     @Autowired
     private MovieService movieService;
 
@@ -29,7 +28,7 @@ public class MovieController {
     }
 
     @PostMapping("/add")
-        public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
+    public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
         Movie savedMovie = movieService.saveMovie(movie);
         return ResponseEntity.ok(savedMovie);
     }
@@ -52,15 +51,8 @@ public class MovieController {
         }
     }
 
-
-//    @Autowired
-//    public MovieController(MovieService movieService) {
-//        this.movieService = movieService;
-//    }
-
     @GetMapping("/{imdbId}/reviewIds")
     public List<Review> getReviewsForMovie(@PathVariable String imdbId) {
         return movieService.getReviewsForMovie(imdbId);
     }
-
 }

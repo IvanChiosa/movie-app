@@ -51,8 +51,8 @@ public class MovieController {
         }
     }
 
-    @GetMapping("/{imdbId}/reviewIds")
-    public List<Review> getReviewsForMovie(@PathVariable String imdbId) {
-        return movieService.getReviewsForMovie(imdbId);
-    }
+//    @GetMapping("/{imdbId}/reviewIds")
+//    public List<Review> getReviewsForMovie(@PathVariable String imdbId) {
+//        return movieService.getReviewsForMovie(imdbId);
+//    }
 }

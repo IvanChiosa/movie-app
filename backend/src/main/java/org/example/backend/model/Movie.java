@@ -31,4 +31,7 @@ public class Movie {
 
     @DocumentReference
     private List<Review> reviewIds;
+
+    public <E> Movie(String tt1234567, String testMovie, String date, String url, String url1, List<E> action, List<E> es) {
+    }
 }

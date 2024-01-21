@@ -13,6 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
+    @Autowired
     private ReviewService reviewService;
 
     @PostMapping

@@ -1,10 +1,9 @@
 package org.example.backend.service;
 
+import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
 import org.example.backend.model.Movie;
 import org.example.backend.repository.MovieRepository;
-import org.example.backend.model.Review;
-import org.example.backend.repository.ReviewRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class MovieService {
+
     private final MovieRepository movieRepository;
-    private final ReviewRepository reviewRepository;
+//    private final ReviewRepository reviewRepository;
 
     public List<Movie> allMovies() {
         return movieRepository.findAll();
@@ -62,15 +63,15 @@ public class MovieService {
 
 
 
-    public MovieService(MovieRepository movieRepository, ReviewRepository reviewRepository) {
-        this.movieRepository = movieRepository;
-        this.reviewRepository = reviewRepository;
-    }
-
-    public List<Review> getReviewsForMovie(String imdbId) {
-        Movie movie = movieRepository.findMovieByImdbId(imdbId)
-                .orElseThrow(() -> new RuntimeException("Film nicht gefunden"));
-        List<Review> reviewIds = movie.getReviewIds(); // Dies sollte eine List<String> sein
-        return reviewRepository.findAllById(reviewIds); // Hier geben Sie die List<String> weiter
-    }
+//    public MovieService(MovieRepository movieRepository) {
+//        this.movieRepository = movieRepository;
+//        this.reviewRepository = reviewRepository;
+//    }
+//
+//    public List<Review> getReviewsForMovie(String imdbId) {
+//        Movie movie = movieRepository.findMovieByImdbId(imdbId)
+//                .orElseThrow(() -> new RuntimeException("Film nicht gefunden"));
+//        List<Review> reviewIds = movie.getReviewIds(); // Dies sollte eine List<String> sein
+//        return reviewRepository.findAllById(reviewIds); // Hier geben Sie die List<String> weiter
+//    }
 }

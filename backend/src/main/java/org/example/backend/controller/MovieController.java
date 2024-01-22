@@ -2,7 +2,6 @@ package org.example.backend.controller;
 
 import org.example.backend.model.Movie;
 import org.example.backend.service.MovieService;
-import org.example.backend.model.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/movies")
 public class MovieController {
+
     @Autowired
     private MovieService movieService;
 
@@ -26,9 +26,15 @@ public class MovieController {
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId) {
         return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(imdbId), HttpStatus.OK);
     }
+//    @GetMapping("/{imdbId}")
+//    public ResponseEntity<Movie> getSingleMovie(@PathVariable String imdbId) {
+//        return movieService.singleMovie(imdbId)
+//                .map(ResponseEntity::ok)
+//                .orElseGet(() -> ResponseEntity.notFound().build());
+//    }
 
     @PostMapping("/add")
-        public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
+    public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
         Movie savedMovie = movieService.saveMovie(movie);
         return ResponseEntity.ok(savedMovie);
     }

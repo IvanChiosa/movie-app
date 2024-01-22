@@ -1,9 +1,6 @@
 package org.example.backend.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.example.backend.model.Review;
 import org.springframework.data.annotation.Id;
@@ -17,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Document(collection = "movies")
+@With
 public class Movie {
     @Id
     private String id; // ObjectId
@@ -34,4 +32,7 @@ public class Movie {
 
     public <E> Movie(String tt1234567, String testMovie, String date, String url, String url1, List<E> action, List<E> es) {
     }
+
+//    public Movie(String movie1) {
+//    }
 }

@@ -34,9 +34,6 @@ public class ReviewController {
         return review.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
-    // "reviewBody": "Aktualisierter Review-Text von Postman ivan"
-    // Aktualisieren einer bestehenden Review
     @PutMapping("/{id}")
     public ResponseEntity<Review> updateReview(@PathVariable String id, @RequestBody Map<String, String> payload) {
         Optional<Review> updatedReview = reviewService.updateReview(id, payload.get("reviewBody"));

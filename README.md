@@ -45,7 +45,9 @@
 
 **Datenbankintegration:** 
 - **MongoDB:** wird für die flexible Speicherung und Verwaltung unstrukturierter Daten genutzt, ideal für Projekte mit schnell wechselnden Datenanforderungen.
----
+  
 **Funktionalitäten der 'Movie App':**
 - Anzeigen, Hinzufügen, Aktualisieren und Löschen von Filmen.
 - Hinterlassen von Kommentaren zu Filmen und Ansehen von Trailern.
+---
+**Ivan Chiosa Capstone-Projekt 02.02.2024 © 2024 neue fische. Alle Rechte vorbehalten.**

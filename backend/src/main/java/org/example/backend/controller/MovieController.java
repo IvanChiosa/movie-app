@@ -25,11 +25,7 @@ public class MovieController {
     @GetMapping("/{imdbId}")
     public ResponseEntity<Movie> getSingleMovie(@PathVariable String imdbId) {
         Optional<Movie> movieOptional = movieService.singleMovie(imdbId);
-        if (movieOptional.isPresent()) {
-            return ResponseEntity.ok(movieOptional.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return movieOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping("/add")
@@ -37,6 +33,17 @@ public class MovieController {
         Movie savedMovie = movieService.saveMovie(movie);
         return ResponseEntity.ok(savedMovie);
     }
+
+
+//    @GetMapping("/{imdbId}")
+//    public ResponseEntity<Movie> getSingleMovie(@PathVariable String imdbId) {
+//        Optional<Movie> movieOptional = movieService.singleMovie(imdbId);
+//        if (movieOptional.isPresent()) {
+//            return ResponseEntity.ok(movieOptional.get());
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
     @PutMapping("/{movieId}")
     public ResponseEntity<Movie> updateMovie(@PathVariable String movieId, @RequestBody Movie movieDetails) {

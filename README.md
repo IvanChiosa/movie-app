@@ -51,7 +51,7 @@
 - Hinterlassen von Kommentaren zu Filmen und Ansehen von Trailern.
 
 **Hinweis:**
-Das Projekt befindet sich derzeit in der Deployment-Phase auf Render.com es kann vorkommen, dass der Server alle 15 Minuten ausfällt und anschließend etwa 30 bis 90 Sekunden für einen Neustart benötigt. Sollte die Seite nach dem Anklicken des Links nicht sofort laden, bitten wir Sie um ein wenig Geduld. Der Container wird gerade neu gestartet. Bald können Sie die Inhalte auf meiner Webseite in Ruhe betrachten. Entspannen Sie sich und genießen Sie Ihren Besuch! [GitHub]([https://github.com](https://movie-app-7tas.onrender.com/))
+Das Projekt befindet sich derzeit in der Deployment-Phase auf Render.com es kann vorkommen, dass der Server alle 15 Minuten ausfällt und anschließend etwa 30 bis 90 Sekunden für einen Neustart benötigt. Sollte die Seite nach dem Anklicken des Links nicht sofort laden, bitten wir Sie um ein wenig Geduld. Der Container wird gerade neu gestartet. Bald können Sie die Inhalte auf meiner Webseite in Ruhe betrachten. Entspannen Sie sich und genießen Sie Ihren Besuch! (https://movie-app-7tas.onrender.com/)
 
 ---
 **Ivan Chiosa Capstone-Projekt 02.02.2024 © 2024 neue fische. Alle Rechte vorbehalten.**

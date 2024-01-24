@@ -49,5 +49,10 @@
 **Funktionalitäten der 'Movie App':**
 - Anzeigen, Hinzufügen, Aktualisieren und Löschen von Filmen.
 - Hinterlassen von Kommentaren zu Filmen und Ansehen von Trailern.
+
+  Der Text, den Sie vorgeschlagen haben, sieht gut aus und ist klar formuliert. Hier ist eine leicht optimierte Version mit kleinen Korrekturen für einen flüssigeren Lesefluss:
+
+**Hinweis:**
+Das Projekt befindet sich derzeit in der Deployment-Phase auf Render.com es kann vorkommen, dass der Server alle 15 Minuten ausfällt und anschließend etwa 30 bis 90 Sekunden für einen Neustart benötigt. Sollte die Seite nach dem Anklicken des Links nicht sofort laden, bitten wir Sie um ein wenig Geduld. Der Container wird gerade neu gestartet. Bald können Sie die Inhalte auf meiner Webseite in Ruhe betrachten. Entspannen Sie sich und genießen Sie Ihren Besuch! **movie-app-7tas.onrender.com**
 ---
 **Ivan Chiosa Capstone-Projekt 02.02.2024 © 2024 neue fische. Alle Rechte vorbehalten.**

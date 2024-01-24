@@ -1,4 +1,6 @@
 ## Capstone-Projekt "Movie App"!
+---
+
 #### Mein Capstone-Projekt für den Abschluss bei der "neue-fische School and Pool for Digital Talent" ist die "Movie App". Dieses Projekt habe ich am Ende meines Kurses entwickelt und in IntelliJ IDEA als Monorepo konfiguriert.
 
 **Backend-Technologien und Werkzeuge:**
@@ -8,7 +10,6 @@
 - **JAR:** Als Paketformat.
 - **Spring Web:** Zum Erstellen von Webanwendungen.
 - **Lombok:** Zur Reduzierung von Boilerplate-Code in Java.
-- **Spring Data MongoDB:** Für die Datenbankintegration.
 - **Spring Reactive Web:** Für die Entwicklung reaktiver Anwendungen.
 - **Spring Boot DevTools:** Zur effizienten Entwicklung und Konfiguration.
 
@@ -27,7 +28,7 @@
 - **Emotion:** CSS-in-JS-Styling.
 - **React Material-UI Carousel:** Für Karussell-Funktionen.
 
-**Integrationstests:**
+**Integrationstestsmit MockMvc:**
 - **JUnit 5:** Für Controller-Tests mit folgenden Konfigurationen:
   - **@SpringBootTest:** Für umfassende Integrationstests.
   - **@AutoConfigureMockMvc:** Ermöglicht das Testen von MVC-Controllern ohne laufenden Servlet-Container.
@@ -43,7 +44,11 @@
 - **YAML-Konfiguration:** Zur Definition der Dienste, Netzwerke und Volumen für Docker.
 - **Deployment auf Render.com:** Nutzung der YAML-Konfiguration für Hosting und Management.
 
+**Datenbankintegration:** 
+- **MongoDB:** wird für die flexible Speicherung und Verwaltung unstrukturierter Daten genutzt, ideal für Projekte mit schnell wechselnden Datenanforderungen.
+
 ---
+
 **Funktionalitäten der 'Movie App':**
 - Anzeigen, Hinzufügen, Aktualisieren und Löschen von Filmen.
 - Hinterlassen von Kommentaren zu Filmen und Ansehen von Trailern.

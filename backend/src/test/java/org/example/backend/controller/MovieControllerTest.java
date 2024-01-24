@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MvcResult;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
@@ -89,7 +90,7 @@ class MovieControllerTest {
     @Test
     void getSingleMovie_ShouldReturnMovie_WhenCalledWithValidImdbId() throws Exception {
 
-        mockMvc.perform(post(BASE_URL + "/add")
+        MvcResult result = mockMvc.perform(post(BASE_URL + "/add")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
@@ -123,7 +124,24 @@ class MovieControllerTest {
                                 "https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"
                             ]
                         }
-                        """));
+                        """))
+        .andReturn();
+        Movie testMovie = objectMapper.readValue(result.getResponse().getContentAsString(), Movie.class);
+        mockMvc.perform(get(BASE_URL + "/" + testMovie.getImdbId())
+                        .contentType("application/json"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.imdbId").value("tt1234567"))
+                .andExpect(jsonPath("$.title").value("Test Movie"))
+                .andExpect(jsonPath("$.releaseDate").value("2021-01-01"))
+                .andExpect(jsonPath("$.trailerLink").value("https://www.youtube.com/watch?v=1234567"))
+                .andExpect(jsonPath("$.poster").value("https://www.imdb.com/title/tt1234567/"))
+                .andExpect(jsonPath("$.genres").isArray())
+                .andExpect(jsonPath("$.genres[0]").value("Action"))
+                .andExpect(jsonPath("$.genres[1]").value("Adventure"))
+                .andExpect(jsonPath("$.backdrops").isArray())
+                .andExpect(jsonPath("$.backdrops[0]").value("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"));
+
+
     }
 
     @Test

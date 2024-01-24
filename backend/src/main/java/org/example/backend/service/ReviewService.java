@@ -1,5 +1,7 @@
 package org.example.backend.service;
 
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
 import org.example.backend.model.Movie;
 import org.example.backend.model.Review;
@@ -15,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ReviewService {
 
     @Autowired
@@ -23,7 +26,14 @@ public class ReviewService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-//    public Review createReview(String reviewBody, String imdbId) {
+    @Autowired
+    public ReviewService(ReviewRepository reviewRepository, MongoTemplate mongoTemplate) {
+        this.reviewRepository = reviewRepository;
+        this.mongoTemplate = mongoTemplate;
+    }
+
+
+    //    public Review createReview(String reviewBody, String imdbId) {
 //        Review review = reviewRepository.insert(new Review(reviewBody));
 //
 //        mongoTemplate.update(Movie.class)
@@ -35,14 +45,27 @@ public class ReviewService {
 //    }
  // Erstellen einer neuen Review
     public Review createReview(String reviewBody, String imdbId) {
+        // Wandeln Sie den imdbId String in ein ObjectId um
+        ObjectId objectId = new ObjectId(imdbId);
+
         Review review = reviewRepository.insert(new Review(reviewBody));
 
-        mongoTemplate.updateFirst(Query.query(Criteria.where("imdbId").is(imdbId)),
+        mongoTemplate.updateFirst(Query.query(Criteria.where("imdbId").is(objectId)),
                 new Update().push("reviewIds", review.getId()),
                 Movie.class);
 
         return review;
     }
+
+//    public Review createReview(String reviewBody, String imdbId) {
+//        Review review = reviewRepository.insert(new Review(reviewBody));
+//
+//        mongoTemplate.updateFirst(Query.query(Criteria.where("imdbId").is(imdbId)),
+//                new Update().push("reviewIds", review.getId()),
+//                Movie.class);
+//
+//        return review;
+//    }
 
     // Abrufen aller Reviews
     public List<Review> findAll() {

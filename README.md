@@ -33,7 +33,7 @@
   - **DirtiesContext (ClassMode.BEFORE_EACH_TEST_METHOD):** Setzt den Spring-Anwendungskontext vor jeder Testmethode zurück.
 
 **Unit-Tests mit Mockito:**
-- **Mockito:** Für Service-Tests mit folgenden Konfigurationen:
+- **Mockito:** Für Service-Tests:
   - **Mocking von Abhängigkeiten:** Für isolierte Testumgebungen.
   - **Simulation von Verhalten:** Ermöglicht das Testen der Service-Logik.
   - **Fokus auf Isolation und Effizienz:** Für schnellere und zuverlässigere Testergebnisse.
@@ -45,9 +45,7 @@
 
 **Datenbankintegration:** 
 - **MongoDB:** wird für die flexible Speicherung und Verwaltung unstrukturierter Daten genutzt, ideal für Projekte mit schnell wechselnden Datenanforderungen.
-
 ---
-
 **Funktionalitäten der 'Movie App':**
 - Anzeigen, Hinzufügen, Aktualisieren und Löschen von Filmen.
 - Hinterlassen von Kommentaren zu Filmen und Ansehen von Trailern.

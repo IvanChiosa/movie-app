@@ -1,6 +1,4 @@
 ## Capstone-Projekt "Movie App"!
----
-
 #### Mein Capstone-Projekt für den Abschluss bei der "neue-fische School and Pool for Digital Talent" ist die "Movie App". Dieses Projekt habe ich am Ende meines Kurses entwickelt und in IntelliJ IDEA als Monorepo konfiguriert.
 
 **Backend-Technologien und Werkzeuge:**

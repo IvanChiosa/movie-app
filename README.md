@@ -28,14 +28,15 @@
 
 **Integrationstestsmit MockMvc:**
 - **JUnit 5:** Für Controller-Tests mit folgenden Konfigurationen:
-  - **@SpringBootTest:** Für umfassende Integrationstests.
-  - **@AutoConfigureMockMvc:** Ermöglicht das Testen von MVC-Controllern ohne laufenden Servlet-Container.
-  - **@DirtiesContext (ClassMode.BEFORE_EACH_TEST_METHOD):** Setzt den Spring-Anwendungskontext vor jeder Testmethode zurück.
+  - **SpringBootTest:** Für umfassende Integrationstests.
+  - **AutoConfigureMockMvc:** Ermöglicht das Testen von MVC-Controllern ohne laufenden Servlet-Container.
+  - **DirtiesContext (ClassMode.BEFORE_EACH_TEST_METHOD):** Setzt den Spring-Anwendungskontext vor jeder Testmethode zurück.
 
 **Unit-Tests mit Mockito:**
-- **Mocking von Abhängigkeiten:** Für isolierte Testumgebungen.
-- **Simulation von Verhalten:** Ermöglicht das Testen der Service-Logik.
-- **Fokus auf Isolation und Effizienz:** Für schnellere und zuverlässigere Testergebnisse.
+- **Mockito:** Für Service-Tests mit folgenden Konfigurationen:
+  - **Mocking von Abhängigkeiten:** Für isolierte Testumgebungen.
+  - **Simulation von Verhalten:** Ermöglicht das Testen der Service-Logik.
+  - **Fokus auf Isolation und Effizienz:** Für schnellere und zuverlässigere Testergebnisse.
 
 **Bereitstellung und Deployment:**
 - **Docker-Containerisierung:** Für eine konsistente und isolierte Anwendungsumgebung.

@@ -195,6 +195,8 @@ class MovieControllerTest {
                 .backdrops(List.of("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"))
                 .build();
 
+
+
         String movieJson = objectMapper.writeValueAsString(movie);
         String nichtExistierendeMovieId = "123456789"; // Eine sicher nicht existierende ID
 

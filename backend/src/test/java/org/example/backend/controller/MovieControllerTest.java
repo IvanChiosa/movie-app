@@ -125,7 +125,7 @@ class MovieControllerTest {
                             ]
                         }
                         """))
-        .andReturn();
+                .andReturn();
         Movie testMovie = objectMapper.readValue(result.getResponse().getContentAsString(), Movie.class);
         mockMvc.perform(get(BASE_URL + "/" + testMovie.getImdbId())
                         .contentType("application/json"))
@@ -140,8 +140,6 @@ class MovieControllerTest {
                 .andExpect(jsonPath("$.genres[1]").value("Adventure"))
                 .andExpect(jsonPath("$.backdrops").isArray())
                 .andExpect(jsonPath("$.backdrops[0]").value("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"));
-
-
     }
 
     @Test

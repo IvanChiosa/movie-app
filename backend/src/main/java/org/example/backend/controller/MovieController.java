@@ -67,9 +67,4 @@ public class MovieController {
             return ResponseEntity.notFound().build();
         }
     }
-
-//    @GetMapping("/{imdbId}/reviewIds")
-//    public List<Review> getReviewsForMovie(@PathVariable String imdbId) {
-//        return movieService.getReviewsForMovie(imdbId);
-//    }
 }

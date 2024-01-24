@@ -22,16 +22,11 @@ public class MovieController {
         return new ResponseEntity<List<Movie>>(movieService.allMovies(), HttpStatus.OK);
     }
 
-
     @GetMapping("/{imdbId}")
     public ResponseEntity<Movie> getSingleMovie(@PathVariable String imdbId) {
         Optional<Movie> movieOptional = movieService.singleMovie(imdbId);
         return movieOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
-//    @GetMapping("/{imdbId}")
-//    public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId) {
-//        return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(imdbId), HttpStatus.OK);
-//    }
 
     @PostMapping("/add")
     public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {

@@ -7,8 +7,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.backend.model.Movie;
-import org.example.backend.repository.MovieRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -16,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MvcResult;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
@@ -34,14 +33,6 @@ class MovieControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Autowired
-    private MovieRepository movieRepository;
-
-    @BeforeEach
-    public void setup() throws Exception {
-        movieRepository.deleteAll();
-    }
-
     @Test
     void getAllMovies_shouldReturnEmptyList_WhenCalledInitially() throws Exception {
         mockMvc.perform(get(BASE_URL)
@@ -50,29 +41,34 @@ class MovieControllerTest {
                 .andExpect(jsonPath("$", hasSize(0)));
     }
 
-    private void addTestMovies() throws Exception {
-        Movie movie1 = new Movie();
-        movie1.setImdbId("tt1234567");
-        movie1.setTitle("Test Movie");
-        movie1.setReleaseDate("2021-01-01");
-        movie1.setTrailerLink("https://www.youtube.com/watch?v=1234567");
-        movie1.setPoster("https://www.imdb.com/title/tt1234567/");
-        movie1.setGenres(List.of("Action", "Adventure"));
-        movie1.setBackdrops(List.of("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"));
-
-        Movie movie2 = new Movie();
-        movie2.setImdbId("tt7654321");
-        movie2.setTitle("Test Movie 2");
-        movie2.setReleaseDate("2021-01-01");
-        movie2.setTrailerLink("https://www.youtube.com/watch?v=1234567");
-        movie2.setPoster("https://www.imdb.com/title/tt1234567/");
-        movie2.setGenres(List.of("Action", "Adventure"));
-        movie2.setBackdrops(List.of("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"));
+    private void addTestMovies1() throws Exception {
+        Movie movie1 = Movie.builder()
+                .imdbId("tt1234567")
+                .title("Test Movie")
+                .releaseDate("2021-01-01")
+                .trailerLink("https://www.youtube.com/watch?v=1234567")
+                .poster("https://www.imdb.com/title/tt1234567/")
+                .genres(List.of("Action", "Adventure"))
+                .backdrops(List.of("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"))
+                .build();
 
         mockMvc.perform(post(BASE_URL + "/add")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(movie1)))
                 .andExpect(status().isOk());
+
+    }
+
+    private void addTestMovies2() throws Exception {
+        Movie movie2 = Movie.builder()
+                .imdbId("tt7654321")
+                .title("Test Movie 2")
+                .releaseDate("2021-01-01")
+                .trailerLink("https://www.youtube.com/watch?v=1234567")
+                .poster("https://www.imdb.com/title/tt1234567/")
+                .genres(List.of("Action", "Adventure"))
+                .backdrops(List.of("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"))
+                .build();
 
         mockMvc.perform(post(BASE_URL + "/add")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -80,9 +76,11 @@ class MovieControllerTest {
                 .andExpect(status().isOk());
     }
 
+
     @Test
     void getAllMovies_ShouldReturnAllMovieList_WhenMoviesAreAdded() throws Exception {
-        addTestMovies();
+        addTestMovies1();
+        addTestMovies2();
 
         mockMvc.perform(get(BASE_URL)
                         .contentType("application/json"))
@@ -93,7 +91,7 @@ class MovieControllerTest {
     @Test
     void getSingleMovie_ShouldReturnMovie_WhenCalledWithValidImdbId() throws Exception {
 
-        mockMvc.perform(post(BASE_URL + "/add")
+        MvcResult result = mockMvc.perform(post(BASE_URL + "/add")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
@@ -127,7 +125,22 @@ class MovieControllerTest {
                                 "https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"
                             ]
                         }
-                        """));
+                        """))
+                .andReturn();
+        Movie testMovie = objectMapper.readValue(result.getResponse().getContentAsString(), Movie.class);
+        mockMvc.perform(get(BASE_URL + "/" + testMovie.getImdbId())
+                        .contentType("application/json"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.imdbId").value("tt1234567"))
+                .andExpect(jsonPath("$.title").value("Test Movie"))
+                .andExpect(jsonPath("$.releaseDate").value("2021-01-01"))
+                .andExpect(jsonPath("$.trailerLink").value("https://www.youtube.com/watch?v=1234567"))
+                .andExpect(jsonPath("$.poster").value("https://www.imdb.com/title/tt1234567/"))
+                .andExpect(jsonPath("$.genres").isArray())
+                .andExpect(jsonPath("$.genres[0]").value("Action"))
+                .andExpect(jsonPath("$.genres[1]").value("Adventure"))
+                .andExpect(jsonPath("$.backdrops").isArray())
+                .andExpect(jsonPath("$.backdrops[0]").value("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"));
     }
 
     @Test
@@ -136,7 +149,7 @@ class MovieControllerTest {
 
         mockMvc.perform(get(BASE_URL + invalidImdbId)
                         .contentType("application/json"))
-                .andExpect(status().isNotFound()); // Erwartet, hier das die Server mit 404 Nicht gefunden antwortet
+                .andExpect(status().isNotFound()); // Erwartet, hier das ich die Server mit 404 Nicht gefunden antwortet
     }
 
     @Test
@@ -173,14 +186,15 @@ class MovieControllerTest {
 
     @Test
     void updateMovie_ShouldReturnNotFound_WhenMovieDoesNotExist() throws Exception {
-        Movie movie = new Movie();
-        movie.setImdbId("NichtVorhandeneImdbId");
-        movie.setTitle("NichtVorhandenerTitel");
-        movie.setReleaseDate("2024-01-01");
-        movie.setTrailerLink("https://example.com");
-        movie.setPoster("examplePoster");
-        movie.setGenres(List.of("Genre1", "Genre2"));
-        movie.setBackdrops(List.of("https://example.com/backdrop.jpg"));
+        Movie movie = Movie.builder()
+                .imdbId("tt1234567")
+                .title("Test Movie")
+                .releaseDate("2021-01-01")
+                .trailerLink("https://www.youtube.com/watch?v=1234567")
+                .poster("https://www.imdb.com/title/tt1234567/")
+                .genres(List.of("Action", "Adventure"))
+                .backdrops(List.of("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"))
+                .build();
 
         String movieJson = objectMapper.writeValueAsString(movie);
         String nichtExistierendeMovieId = "123456789"; // Eine sicher nicht existierende ID

@@ -42,7 +42,7 @@ class MovieControllerTest {
     }
 
     private void addTestMovies1() throws Exception {
-        Movie movie1 = new Movie.Builder()
+        Movie movie1 = Movie.builder()
                 .imdbId("tt1234567")
                 .title("Test Movie")
                 .releaseDate("2021-01-01")
@@ -60,14 +60,15 @@ class MovieControllerTest {
     }
 
     private void addTestMovies2() throws Exception {
-        Movie movie2 = new Movie();
-        movie2.setImdbId("tt7654321");
-        movie2.setTitle("Test Movie 2");
-        movie2.setReleaseDate("2021-01-01");
-        movie2.setTrailerLink("https://www.youtube.com/watch?v=1234567");
-        movie2.setPoster("https://www.imdb.com/title/tt1234567/");
-        movie2.setGenres(List.of("Action", "Adventure"));
-        movie2.setBackdrops(List.of("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"));
+        Movie movie2 = Movie.builder()
+                .imdbId("tt7654321")
+                .title("Test Movie 2")
+                .releaseDate("2021-01-01")
+                .trailerLink("https://www.youtube.com/watch?v=1234567")
+                .poster("https://www.imdb.com/title/tt1234567/")
+                .genres(List.of("Action", "Adventure"))
+                .backdrops(List.of("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"))
+                .build();
 
         mockMvc.perform(post(BASE_URL + "/add")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -185,14 +186,15 @@ class MovieControllerTest {
 
     @Test
     void updateMovie_ShouldReturnNotFound_WhenMovieDoesNotExist() throws Exception {
-        Movie movie = new Movie();
-        movie.setImdbId("NichtVorhandeneImdbId");
-        movie.setTitle("NichtVorhandenerTitel");
-        movie.setReleaseDate("2024-01-01");
-        movie.setTrailerLink("https://example.com");
-        movie.setPoster("examplePoster");
-        movie.setGenres(List.of("Genre1", "Genre2"));
-        movie.setBackdrops(List.of("https://example.com/backdrop.jpg"));
+        Movie movie = Movie.builder()
+                .imdbId("tt1234567")
+                .title("Test Movie")
+                .releaseDate("2021-01-01")
+                .trailerLink("https://www.youtube.com/watch?v=1234567")
+                .poster("https://www.imdb.com/title/tt1234567/")
+                .genres(List.of("Action", "Adventure"))
+                .backdrops(List.of("https://www.imdb.com/title/tt1234567/mediaviewer/rm1234567"))
+                .build();
 
         String movieJson = objectMapper.writeValueAsString(movie);
         String nichtExistierendeMovieId = "123456789"; // Eine sicher nicht existierende ID

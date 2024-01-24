@@ -129,10 +129,9 @@ class MovieServiceTest {
         when(movieRepository.insert(movieToSave)).thenThrow(new RuntimeException("Speichern fehlgeschlagen"));
 
         // When & Then
-        assertThrows(RuntimeException.class, () -> {
-            movieService.saveMovie(movieToSave);
-        }, "Beim Speichern des Films sollte eine Exception geworfen werden");
-
+        // Test: Erwartet eine RuntimeException beim Speichern eines ungültigen Films
+        assertThrows(RuntimeException.class, () -> movieService.saveMovie(movieToSave),
+                "Beim Speichern des Films sollte eine RuntimeException geworfen werden");
         verify(movieRepository).insert(movieToSave);
     }
 

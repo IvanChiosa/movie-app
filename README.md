@@ -1,4 +1,5 @@
-## Mein Capstone-Projekt für den Abschluss bei der "neue-fische School and Pool for Digital Talent" ist die "Movie App". Dieses Projekt habe ich am Ende meines Kurses entwickelt und in IntelliJ IDEA als Monorepo konfiguriert.
+## Capstone-Projekt "Movie App"!
+#### Mein Capstone-Projekt für den Abschluss bei der "neue-fische School and Pool for Digital Talent" ist die "Movie App". Dieses Projekt habe ich am Ende meines Kurses entwickelt und in IntelliJ IDEA als Monorepo konfiguriert.
 
 **Backend-Technologien und Werkzeuge:**
 - **Spring Initializr:** Zur Grundkonfiguration des Projekts.
@@ -42,10 +43,7 @@
 - **YAML-Konfiguration:** Zur Definition der Dienste, Netzwerke und Volumen für Docker.
 - **Deployment auf Render.com:** Nutzung der YAML-Konfiguration für Hosting und Management.
 
+---
 **Funktionalitäten der 'Movie App':**
 - Anzeigen, Hinzufügen, Aktualisieren und Löschen von Filmen.
 - Hinterlassen von Kommentaren zu Filmen und Ansehen von Trailern.
-
----
-
-Diese Version ist strukturierter und sollte die Lesbarkeit verbessern.

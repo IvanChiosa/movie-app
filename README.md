@@ -55,4 +55,4 @@ Das Projekt befindet sich derzeit in der Deployment-Phase auf Render.com es kann
 
 ---
 **Ivan Chiosa Capstone-Projekt 02.02.2024 © 2024 neue fische. Alle Rechte vorbehalten.**
-**Besuchen Sie mein 🔗[LinkedIn](https://www.linkedin.com/in/ivanchiosa/?locale=en_US) Profil.**
+**Besuchen Sie mein [LinkedIn](https://www.linkedin.com/in/ivanchiosa/?locale=en_US) Profil.**

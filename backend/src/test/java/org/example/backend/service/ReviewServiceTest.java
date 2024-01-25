@@ -11,9 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
-
 class ReviewServiceTest {
-
     private final ReviewRepository reviewRepository;
     private final MongoTemplate mongoTemplate;
     private final ReviewService reviewService;
@@ -28,23 +26,17 @@ class ReviewServiceTest {
         // Given
         String reviewBody = "Great movie!";
         String imdbId = "tt1234567";
-
-        // Erstellen Sie ein ObjectId für das Mock-Review
         ObjectId mockReviewId = new ObjectId();
-
         Review mockReview = new Review(reviewBody);
-
-        // Setzen Sie das ObjectId als ID für das Mock-Review
         mockReview.setId(mockReviewId);
 
-        when(reviewRepository.insert(any(Review.class))).thenReturn(mockReview);
-
         // When
+        when(reviewRepository.insert(any(Review.class))).thenReturn(mockReview);
         Review result = reviewService.createReview(reviewBody, imdbId);
 
         // Then
         assertEquals(reviewBody, result.getBody());
-        assertEquals(mockReviewId, result.getId()); // Überprüfen Sie das ObjectId
+        assertEquals(mockReviewId, result.getId());
         verify(reviewRepository).insert(any(Review.class));
         verify(mongoTemplate).updateFirst(any(Query.class), any(Update.class), eq(Movie.class));
     }
@@ -54,16 +46,13 @@ class ReviewServiceTest {
         // Given
         String reviewBody = "Bad movie!";
         String imdbId = "tt9876543";
-
-        // Wenn das ReviewRepository fehlschlägt, sollte es null zurückgeben
         when(reviewRepository.insert(any(Review.class))).thenReturn(null);
 
         // When
         Review result = reviewService.createReview(reviewBody, imdbId);
 
         // Then
-        assertNull(result); // Überprüfen, ob das Ergebnis null ist
+        assertNull(result);
         verify(reviewRepository).insert(any(Review.class));
-        // Möglicherweise weitere Überprüfungen für das Verhalten im Fehlerfall
     }
 }

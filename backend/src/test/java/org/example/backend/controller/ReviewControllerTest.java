@@ -30,9 +30,8 @@ class ReviewControllerTest {
 
     @Test
     void testCreateReview_WhenReviewIsCreating_ReturnReview() throws Exception {
-        // Testdaten direkt in der Methode initialisieren
         Map<String, String> reviewPayload = new HashMap<>();
-        reviewPayload.put("reviewBody", "Great movie!"); // Ändern Sie "body" zu "reviewBody"
+        reviewPayload.put("reviewBody", "Great movie!");
         reviewPayload.put("imdbId", "tt1234567");
 
         String jsonPayload = objectMapper.writeValueAsString(reviewPayload);
@@ -46,7 +45,7 @@ class ReviewControllerTest {
     @Test
     void testCreateReview_WhenReviewIsNotCreating_ReturnError() throws Exception {
         Map<String, String> reviewPayload = new HashMap<>();
-        reviewPayload.put("body", ""); // ungültiger Inhalt
+        reviewPayload.put("body", "");
         reviewPayload.put("imdbId", "tt1234567");
 
         String jsonPayload = objectMapper.writeValueAsString(reviewPayload);
@@ -54,40 +53,6 @@ class ReviewControllerTest {
         mockMvc.perform(post(ENDPOINT_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonPayload))
-                .andExpect(status().isBadRequest()); // Erwartet 'Bad Request', wenn die Daten ungültig sind
+                .andExpect(status().isBadRequest());
     }
-
-
-//    @Test
-//    void testCreateReview_WhenReviewIsCreating_ReturnReview() throws Exception {
-//
-//        // Testdaten direkt in der Methode initialisieren
-//        Map<String, String> reviewPayload = new HashMap<>();
-//        reviewPayload.put("body", "Great movie!");
-//        reviewPayload.put("imdbId", "tt1234567");
-//
-//        String jsonPayload = objectMapper.writeValueAsString(reviewPayload);
-//
-//        mockMvc.perform(post(ENDPOINT_URL)
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonPayload))
-//                .andExpect(status().isCreated());
-//    }
-
-
-//    @Test
-//    void testCreateReview_WhenReviewIsNotCreating_ReturnError() throws Exception {
-//
-//        // Testdaten direkt in der Methode initialisieren, diesmal mit unvollständigen oder ungültigen Daten
-//        Map<String, String> reviewPayload = new HashMap<>();
-//        reviewPayload.put("body", ""); // Beispiel für ungültigen Inhalt
-//        reviewPayload.put("imdbId", "tt1234567");
-//
-//        String jsonPayload = objectMapper.writeValueAsString(reviewPayload);
-//
-//        mockMvc.perform(post(ENDPOINT_URL)
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonPayload))
-//                .andExpect(status().isBadRequest()); // Erwarten eines 'Bad Request' Status, wenn die Daten ungültig sind
-//    }
 }

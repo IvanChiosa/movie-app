@@ -18,7 +18,12 @@ public class ReviewController {
 
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload) {
-        return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"),
-                payload.get("imdbId")), HttpStatus.CREATED);
+        String IMDB_ID = "imdbId";
+        String REVIEW_BODY = "reviewBody";
+        if (payload.get(REVIEW_BODY) == null || payload.get(REVIEW_BODY).isEmpty() ||
+                payload.get(IMDB_ID) == null || payload.get(IMDB_ID).isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(reviewService.createReview(payload.get("reviewBody"), payload.get("imdbId")), HttpStatus.CREATED);
     }
 }

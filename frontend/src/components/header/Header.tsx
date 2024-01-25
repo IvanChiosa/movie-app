@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVideoSlash } from '@fortawesome/free-solid-svg-icons';
@@ -18,10 +18,10 @@ const Header : React.FC = () => {
                         <NavLink className="nav-link" to="/add">Add new Movies</NavLink>
                         <NavLink className="nav-link" to="/movie-list">Movie List</NavLink>
                     </Nav>
-                    <div className="ms-auto navbar-row">
-                        <Button variant="outline-info" className="me-2, button-add">Login</Button>
-                        <Button variant="outline-info" className="button-add">Register</Button>
-                    </div>
+                    {/*<div className="ms-auto navbar-row">*/}
+                    {/*    <Button variant="outline-info" className="me-2, button-add">Login</Button>*/}
+                    {/*    <Button variant="outline-info" className="button-add">Register</Button>*/}
+                    {/*</div>*/}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

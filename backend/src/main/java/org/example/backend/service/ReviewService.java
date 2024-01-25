@@ -1,5 +1,7 @@
 package org.example.backend.service;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.example.backend.model.Movie;
 import org.example.backend.model.Review;
 import org.example.backend.repository.ReviewRepository;
@@ -11,6 +13,8 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 @Service
+@NoArgsConstructor
+@AllArgsConstructor
 public class ReviewService {
 
     @Autowired
@@ -21,7 +25,7 @@ public class ReviewService {
 
     public Review createReview(String reviewBody, String imdbId) {
         Review review = reviewRepository.insert(new Review(reviewBody));
-
+        if (review == null) { return null;}
         mongoTemplate.updateFirst(Query.query(Criteria.where("imdbId").is(imdbId)),
                 new Update().push("reviewIds", review.getId()),
                 Movie.class);

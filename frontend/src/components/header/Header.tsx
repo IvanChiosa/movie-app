@@ -22,6 +22,7 @@ const Header : React.FC = () => {
                     {/*    <Button variant="outline-info" className="me-2, button-add">Login</Button>*/}
                     {/*    <Button variant="outline-info" className="button-add">Register</Button>*/}
                     {/*</div>*/}
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>

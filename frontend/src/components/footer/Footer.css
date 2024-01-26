@@ -1,17 +1,7 @@
-body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-main {
-    min-height: 100vh; /* Sorgt dafür, dass der Hauptinhalt mindestens so hoch wie das Browserfenster ist */
-    padding-bottom: 20px; /* Platz für den Footer am Ende der Seite, passen Sie dies an die tatsächliche Höhe Ihres Footers an */
-}
-
-/* Stil für den Footer */
 footer {
     background-color: #212529;
     color: white;
     text-align: center;
     padding: 20px;
+    margin-top: 10px;
 }

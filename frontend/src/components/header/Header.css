@@ -1,82 +1,143 @@
 /* Stil für die gesamte Navbar */
 .navbar {
-  margin-bottom: 0;
-  height: 50px;
-  display: flex;
-  align-items: center; /* Zentriert Elemente vertikal in der Navbar */
-  justify-content: space-between; /* Erzeugt gleichmäßigen Raum zwischen den Hauptelementen */
+    margin-bottom: 0;
+    height: 50px;
+    display: flex;
+    align-items: center; /* Zentriert Elemente vertikal in der Navbar */
+    justify-content: space-between; /* Erzeugt gleichmäßigen Raum zwischen den Hauptelementen */
+
+    z-index: 1050; /* Stellen Sie sicher, dass dieser Wert höher ist als der des Hintergrundbildes */
+    position: relative;
+/
 }
+
 /*.my-nav {*/
 
 /*  padding-top: 0;*/
 /*}*/
 /* Stil für den Container */
 .container.fluid {
-  padding-top: 0;
-  display: flex;
-  flex-wrap: wrap; /* Erlaubt Umbrüche für kleinere Bildschirme */
-  width: 100%;
-  /*padding-left: 0;*/
-  /*padding-right: 0;*/
+    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap; /* Erlaubt Umbrüche für kleinere Bildschirme */
+    width: 100%;
+    /*padding-left: 0;*/
+    /*padding-right: 0;*/
 }
 
 /* Stil für das Brand-Element */
 .navbar-brand {
-  flex-grow: 1; /* Erlaubt es dem Brand, Raum zu beanspruchen */
-  display: flex;
-  align-items: center;
-  color: gold; /* Setzt die Farbe des Brands */
-  text-decoration: none; /* Entfernt Unterstreichung */
+    flex-grow: 1; /* Erlaubt es dem Brand, Raum zu beanspruchen */
+    display: flex;
+    align-items: center;
+    color: gold; /* Setzt die Farbe des Brands */
+    text-decoration: none; /* Entfernt Unterstreichung */
 }
 
 /* Stil für die Navigationslinks */
-.navbar-collapse {
-  display: flex;
-  align-items: center;
-}
+/*.navbar-collapse {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*}*/
 
 .navbar-row {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
 }
 
 .nav-link {
-  color: white; /* Setzt die Farbe der Links */
-  text-decoration: none; /* Entfernt Unterstreichung */
-  margin-right: 10px; /* Abstand zwischen den Links */
-  border: gold 1px solid; /* Setzt einen Rahmen um die Links */
+    color: white; /* Setzt die Farbe der Links */
+    text-decoration: none; /* Entfernt Unterstreichung */
+    margin-right: 10px; /* Abstand zwischen den Links */
+    border: gold 1px solid; /* Setzt einen Rahmen um die Links */
 }
 
 .nav-link:hover {
-  color: #9d703b; /* Farbe beim Hover */
+    color: #9d703b; /* Farbe beim Hover */
 }
 
 .movie-app:hover {
-  color: #9d703b; /* Farbe beim Hover */
+    color: #9d703b; /* Farbe beim Hover */
 }
 
 /* Stil für die Buttons */
 .navbar-collapse .ms-auto {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 button {
-  transition: 0.6s; /* Sanfter Übergang beim Hover */
+    transition: 0.6s; /* Sanfter Übergang beim Hover */
 }
 
 button:hover {
-  color: #fff; /* Farbe beim Hover */
-  background-color: #17a2b8; /* Hintergrundfarbe beim Hover */
+    color: #fff; /* Farbe beim Hover */
+    background-color: #17a2b8; /* Hintergrundfarbe beim Hover */
 }
+
 .button-add {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 5px;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* Responsive Design Anpassungen */
+@media screen and (max-width: 600px) {
+    .movie-detail {
+        flex-direction: column;
+        align-items: center;
+        top: 20px;
+    }
+    .reviews {
+        margin: 20px;
+        width: 100%;
+    }
+
+
+    .navbar-collapse {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        background-color: #212529;
+        position: fixed;
+        top: 0;
+        left: 0;
+        /*height: 100%;*/
+        width: 250px; /* Breite des Menüs */
+        z-index: 1050;
+        margin-top: 50px;
+    }
+
+
+    .navbar-collapse.open {
+        transform: translateX(0);
+    }
+
+    .navbar-row, .navbar-collapse .ms-auto {
+        width: 100%;
+        justify-content: space-between;
+        margin-right: 0;
+    }
+
+    .nav-link, .button-add {
+        width: 60%;
+        text-align: left;
+        padding: 10px;
+        margin-right: auto;
+        border: none;
+    }
+
+    /*!* Optional: Stil für das Hamburger-Menü *!*/
+    /*.navbar-toggler {*/
+    /*  display: block; !* Zeigt den Hamburger-Button auf kleineren Bildschirmen an *!*/
+    /*  z-index: 1051; !* Sollte höher oder gleich dem Z-Index der Navbar sein *!*/
+    /*  position: relative;*/
+    /*}*/
+
+
 }

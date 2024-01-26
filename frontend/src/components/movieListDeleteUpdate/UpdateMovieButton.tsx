@@ -1,6 +1,7 @@
 import UpdateMovieForm from "./UpdateMovieForm.tsx";
 import React, {useState} from "react";
 import {Movie} from "./UpdateMovieForm.tsx"
+import "./MovieList.css";
 
 interface UpdateMovieButtonProps {
     movie: Movie;
@@ -13,7 +14,7 @@ const UpdateMovieButton: React.FC<UpdateMovieButtonProps> = ({movie, onUpdateSuc
     const toggleEditing = () => setIsEditing(!isEditing);
     return (
         <>
-            <button onClick={toggleEditing}>Film bearbeiten</button>
+            <button className="btn-bearbeiten-löschen" onClick={toggleEditing}>Film bearbeiten</button>
             {isEditing && (
                 <UpdateMovieForm
                     movie={movie}

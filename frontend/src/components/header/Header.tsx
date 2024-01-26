@@ -7,7 +7,7 @@ import './Header.css';
 
 const Header : React.FC = () => {
     return (
-        <Navbar className={"navbar"}   bg="dark" variant="dark" expand="lg">
+        <Navbar className="navbar"  bg="dark" variant="dark" expand="lg">
             <Container className={"fluid"}>
                 <Navbar.Brand href="/" className="movie-app"  style={{ color: 'gold' }}>
                     <FontAwesomeIcon icon={faVideoSlash} />Movie-app

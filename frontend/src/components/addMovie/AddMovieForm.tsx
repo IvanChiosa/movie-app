@@ -61,8 +61,7 @@ const AddMovieForm: React.FC = () => {
     // Das Formular-Rendering
     return (
         <div className="add-new-movie">
-
-            <form>
+            <form className="form">
                 <h2>Add a New Movie</h2>
                 {/* IMDb ID Eingabefeld */}
                 <div>
@@ -72,6 +71,7 @@ const AddMovieForm: React.FC = () => {
                         name="imdbId"
                         value={formData.imdbId}
                         onChange={handleInputChange}
+                        placeholder={"Letter oder number..."}
                     />
                 </div>
                 {/* Titel Eingabefeld */}
@@ -82,16 +82,18 @@ const AddMovieForm: React.FC = () => {
                         name="title"
                         value={formData.title}
                         onChange={handleInputChange}
+                        placeholder={"Title of the movie..."}
                     />
                 </div>
                 {/* Release Date Eingabefeld */}
                 <div>
                     <label>Release Date:</label>
                     <input
-                        type="text"
+                        type="date"
                         name="releaseDate"
                         value={formData.releaseDate}
                         onChange={handleInputChange}
+                        placeholder={"YYYY-MM-DD"}
                     />
                 </div>
                 {/* Trailer Link Eingabefeld */}
@@ -102,6 +104,7 @@ const AddMovieForm: React.FC = () => {
                         name="trailerLink"
                         value={formData.trailerLink}
                         onChange={handleInputChange}
+                        placeholder={"Trailer Link..."}
                     />
                 </div>
                 {/* Genres Eingabefeld */}
@@ -146,6 +149,7 @@ const AddMovieForm: React.FC = () => {
                         name="poster"
                         value={formData.poster}
                         onChange={handleInputChange}
+                        placeholder={"Poster URL..."}
                     />
                 </div>
                 <div>
@@ -155,6 +159,7 @@ const AddMovieForm: React.FC = () => {
                         name="backdrops"
                         value={formData.backdrops.join(", ")}
                         onChange={handleInputChange}
+                        placeholder={"Backdrop URLs..."}
                     />
                 </div>
 

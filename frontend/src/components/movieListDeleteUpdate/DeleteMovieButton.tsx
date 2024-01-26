@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import "./MovieList.css";
 
 interface DeleteMovieProps {
     movieId: string;
@@ -22,7 +23,7 @@ const DeleteMovieButton: React.FC<DeleteMovieProps> = ({movieId, onDeletionSucce
         }
     };
     return (
-        <button onClick={handleDelete}>Film löschen Ivan</button>
+        <button className="btn-bearbeiten-löschen" onClick={handleDelete}>Film löschen</button>
     );
 };
 export default DeleteMovieButton;

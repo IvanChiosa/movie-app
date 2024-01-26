@@ -1,20 +1,23 @@
 /* Stil für die gesamte Navbar */
 .navbar {
+  margin-bottom: 0;
   height: 50px;
   display: flex;
   align-items: center; /* Zentriert Elemente vertikal in der Navbar */
   justify-content: space-between; /* Erzeugt gleichmäßigen Raum zwischen den Hauptelementen */
 }
-.my-nav {
+/*.my-nav {*/
 
-  padding-top: 0;
-}
+/*  padding-top: 0;*/
+/*}*/
 /* Stil für den Container */
 .container.fluid {
   padding-top: 0;
   display: flex;
   flex-wrap: wrap; /* Erlaubt Umbrüche für kleinere Bildschirme */
   width: 100%;
+  /*padding-left: 0;*/
+  /*padding-right: 0;*/
 }
 
 /* Stil für das Brand-Element */

@@ -5,24 +5,15 @@
     display: flex;
     align-items: center; /* Zentriert Elemente vertikal in der Navbar */
     justify-content: space-between; /* Erzeugt gleichmäßigen Raum zwischen den Hauptelementen */
-
     z-index: 1050; /* Stellen Sie sicher, dass dieser Wert höher ist als der des Hintergrundbildes */
     position: relative;
-/
 }
 
-/*.my-nav {*/
-
-/*  padding-top: 0;*/
-/*}*/
-/* Stil für den Container */
 .container.fluid {
     padding-top: 0;
     display: flex;
     flex-wrap: wrap; /* Erlaubt Umbrüche für kleinere Bildschirme */
     width: 100%;
-    /*padding-left: 0;*/
-    /*padding-right: 0;*/
 }
 
 /* Stil für das Brand-Element */
@@ -33,12 +24,6 @@
     color: gold; /* Setzt die Farbe des Brands */
     text-decoration: none; /* Entfernt Unterstreichung */
 }
-
-/* Stil für die Navigationslinks */
-/*.navbar-collapse {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*}*/
 
 .navbar-row {
     display: flex;
@@ -73,7 +58,7 @@ button {
 
 button:hover {
     color: #fff; /* Farbe beim Hover */
-    background-color: #17a2b8; /* Hintergrundfarbe beim Hover */
+    background-color: #17a2b8;
 }
 
 .button-add {
@@ -88,17 +73,17 @@ button:hover {
 }
 
 /* Responsive Design Anpassungen */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
     .movie-detail {
         flex-direction: column;
         align-items: center;
         top: 20px;
     }
+
     .reviews {
         margin: 20px;
         width: 100%;
     }
-
 
     .navbar-collapse {
         transform: translateX(-100%);
@@ -107,12 +92,10 @@ button:hover {
         position: fixed;
         top: 0;
         left: 0;
-        /*height: 100%;*/
-        width: 250px; /* Breite des Menüs */
+        width: 250px;
         z-index: 1050;
         margin-top: 50px;
     }
-
 
     .navbar-collapse.open {
         transform: translateX(0);
@@ -131,13 +114,4 @@ button:hover {
         margin-right: auto;
         border: none;
     }
-
-    /*!* Optional: Stil für das Hamburger-Menü *!*/
-    /*.navbar-toggler {*/
-    /*  display: block; !* Zeigt den Hamburger-Button auf kleineren Bildschirmen an *!*/
-    /*  z-index: 1051; !* Sollte höher oder gleich dem Z-Index der Navbar sein *!*/
-    /*  position: relative;*/
-    /*}*/
-
-
 }

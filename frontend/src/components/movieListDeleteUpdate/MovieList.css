@@ -1,8 +1,7 @@
 /* Stil für die Movie Cards */
 .card-movie {
-    width: 400px; /* Anpassen der Breite der Cards */
-    /*margin: 20px; !* Anpassen des Abstands zwischen den Cards *!*/
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Hinzufügen eines Schatteneffekts */
+    width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     height: 100%;
     margin: auto;
 }
@@ -18,7 +17,8 @@
 .btn-bearbeiten-löschen {
     margin-top: 10px;
 }
-.card-footer .btn-bearbeiten-löschen{
+
+.card-footer .btn-bearbeiten-löschen {
     display: inline-block;
     margin: 0 10px;
 }

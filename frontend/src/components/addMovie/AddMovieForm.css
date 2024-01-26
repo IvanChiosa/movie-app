@@ -1,21 +1,15 @@
 .add-new-movie {
-    /*background-color: #333333;*/
-    padding: 10px;
+    padding-top: 10px;
     margin-bottom: 0;
 }
-/*.min-height {*/
-/*    min-height: 100vh; !* Sorgt dafür, dass der Hauptinhalt mindestens so hoch wie das Browserfenster ist *!*/
-/*    padding-bottom: 20px; !* Platz für den Footer am Ende der Seite, passen Sie dies an die tatsächliche Höhe Ihres Footers an *!*/
-/*}*/
 
 .form {
     max-width: 500px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 16px;
     background-color: #f5f5f5;
     border-radius: 20px;
 }
-
 
 /* Stil für die Überschrift */
 h2 {
@@ -66,7 +60,6 @@ input[type="radio"] {
     cursor: pointer;
     margin-left: 5px;
 }
-
 
 .button-add:hover {
     background-color: #0056b3;

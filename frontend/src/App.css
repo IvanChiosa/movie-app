@@ -19,4 +19,48 @@
     color: white;
 }
 
+/*@media screen and (max-width: 600px) {*/
+/*    .movie-detail {*/
+/*        flex-direction: column;*/
+/*        align-items: center;*/
+/*        top: 20px;*/
+/*    }*/
+/*    .reviews {*/
+/*        margin: 20px;*/
+/*        width: 100%;*/
+/*    }*/
+/*    img {*/
+/*        width: 100%;*/
+/*    }*/
+/*}*/
+
+/* Media Query für Tablets */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .movie-poster {
+        height: 200px; /* Leicht vergrößerte Höhe für Tablets */
+        /*flex-direction: column;*/
+    }
+
+    .movie-detail {
+        flex-direction: row; /* Wieder zurück zur horizontalen Anordnung */
+        align-items: center;
+        top: 20px;
+    }
+}
+
+/* Media Query für Desktop-Geräte */
+@media screen and (min-width: 1025px) {
+    .movie-poster {
+        /*flex-direction: column;*/
+        height: 300px; /* Standardhöhe für Desktop-Ansichten */
+    }
+
+    .movie-detail {
+        flex-direction: row; /* Beibehaltung der horizontalen Anordnung */
+        align-items: center;
+        top: 30px; /* Anpassung der Positionierung für größere Bildschirme */
+    }
+}
+
+
 

@@ -15,7 +15,6 @@ import java.util.Optional;
 public class MovieService {
 
     private final MovieRepository movieRepository;
-//    private final ReviewRepository reviewRepository;
 
     public List<Movie> allMovies() {
         return movieRepository.findAll();
@@ -59,19 +58,4 @@ public class MovieService {
             return false;
         }
     }
-
-
-
-
-//    public MovieService(MovieRepository movieRepository) {
-//        this.movieRepository = movieRepository;
-//        this.reviewRepository = reviewRepository;
-//    }
-//
-//    public List<Review> getReviewsForMovie(String imdbId) {
-//        Movie movie = movieRepository.findMovieByImdbId(imdbId)
-//                .orElseThrow(() -> new RuntimeException("Film nicht gefunden"));
-//        List<Review> reviewIds = movie.getReviewIds(); // Dies sollte eine List<String> sein
-//        return reviewRepository.findAllById(reviewIds); // Hier geben Sie die List<String> weiter
-//    }
 }

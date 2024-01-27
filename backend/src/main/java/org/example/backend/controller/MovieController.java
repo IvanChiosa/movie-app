@@ -1,6 +1,7 @@
 package org.example.backend.controller;
 
 import org.example.backend.model.Movie;
+import org.example.backend.model.Review;
 import org.example.backend.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,17 +34,6 @@ public class MovieController {
         Movie savedMovie = movieService.saveMovie(movie);
         return ResponseEntity.ok(savedMovie);
     }
-
-
-//    @GetMapping("/{imdbId}")
-//    public ResponseEntity<Movie> getSingleMovie(@PathVariable String imdbId) {
-//        Optional<Movie> movieOptional = movieService.singleMovie(imdbId);
-//        if (movieOptional.isPresent()) {
-//            return ResponseEntity.ok(movieOptional.get());
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
 
     @PutMapping("/{movieId}")
     public ResponseEntity<Movie> updateMovie(@PathVariable String movieId, @RequestBody Movie movieDetails) {

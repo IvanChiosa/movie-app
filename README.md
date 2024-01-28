@@ -1,5 +1,5 @@
-## Capstone-Projekt "Movie App"!
-#### Mein Capstone-Projekt für den Abschluss bei der "neue-fische School and Pool for Digital Talent" ist die "Movie App". Dieses Projekt habe ich am Ende meines Kurses entwickelt und in IntelliJ IDEA als Monorepo konfiguriert.
+## Capstone-Projekt "Movie-app"!
+#### Mein Capstone-Projekt für den Abschluss bei der "neue-fische School and Pool for Digital Talent" ist die "Movie-app". Dieses Projekt habe ich am Ende meines Kurses entwickelt und in IntelliJ IDEA als Monorepo konfiguriert.
 
 **Backend-Technologien und Werkzeuge:**
 - **Spring Initializr:** Zur Grundkonfiguration des Projekts.
@@ -46,7 +46,7 @@
 **Datenbankintegration:** 
 - **MongoDB:** wird für die flexible Speicherung und Verwaltung unstrukturierter Daten genutzt, ideal für Projekte mit schnell wechselnden Datenanforderungen.
 
-**Funktionalitäten der 'Movie App':**
+**Funktionalitäten der 'Movie-app':**
 - Anzeigen, Hinzufügen, Aktualisieren und Löschen von Filmen.
 - Hinterlassen von Kommentaren zu Filmen und Ansehen von Trailern.
 

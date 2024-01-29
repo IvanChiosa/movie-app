@@ -86,16 +86,20 @@ button:hover {
         flex-direction: column;
         padding: 10px;
     }
+
     img {
         width: 100%;
         flex-direction: column;
     }
 
-    .card-style {
-        margin: 20px;
+    .card-movie {
         width: 100%;
-        flex-direction: column;
-        padding: 10px;
+        margin: 10px 0;
+
+    }
+
+    .card-style {
+        margin: 10px; /* Reduzierung der Margin */
     }
 
 
@@ -127,5 +131,16 @@ button:hover {
         padding: 10px;
         margin-right: auto;
         border: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .card-body {
+        font-size: 14px; /* Kleinere Schriftgröße */
+    }
+
+    .btn-bearbeiten-löschen {
+        padding: 5px 10px; /* Kleinere Buttons */
+        font-size: 12px;
     }
 }

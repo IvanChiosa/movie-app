@@ -42,7 +42,6 @@ const MovieList: React.FC = () => {
 
     const handleUpdateFailure = () => {
         console.error("Fehler beim Aktualisieren des Films:", error);
-        // Fehlerbehandlung hier
     };
 
     return (

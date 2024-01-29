@@ -83,7 +83,14 @@ button:hover {
     .reviews {
         margin: 20px;
         width: 100%;
+        flex-direction: column;
+        padding: 10px;
     }
+    img {
+        width: 100%;
+        flex-direction: column;
+    }
+
 
     .navbar-collapse {
         transform: translateX(-100%);

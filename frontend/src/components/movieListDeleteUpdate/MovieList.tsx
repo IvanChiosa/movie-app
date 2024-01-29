@@ -6,6 +6,7 @@ import DeleteMovieButton from "./DeleteMovieButton.tsx";
 import UpdateMovieButton from "./UpdateMovieButton.tsx";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
+import "../header/Header.css";
 
 interface Movie {
     id: string;

@@ -91,6 +91,13 @@ button:hover {
         flex-direction: column;
     }
 
+    .card-style {
+        margin: 20px;
+        width: 100%;
+        flex-direction: column;
+        padding: 10px;
+    }
+
 
     .navbar-collapse {
         transform: translateX(-100%);

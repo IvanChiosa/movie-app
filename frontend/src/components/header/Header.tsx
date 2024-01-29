@@ -11,15 +11,15 @@ const Header: React.FC = () => {
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
+        console.log("Menu is now ", isOpen);
     };
     const handleNavLinkClick = () => {
         if (isOpen) {
             toggleMenu();
         }
     };
-
     return (
-        <Navbar className="navbar" bg="dark" variant="dark" expand="lg">
+        <Navbar className="navbar" bg="dark" variant="dark" expand="lg" expanded={isOpen}>
             <Container className="fluid">
                 <Navbar.Brand href="/" className="movie-app" style={{color: 'gold'}}>
                     <FontAwesomeIcon icon={faVideoSlash}/>Movie-app
@@ -33,7 +33,6 @@ const Header: React.FC = () => {
                         <NavLink className="nav-link" to="/add" onClick={handleNavLinkClick}>Add new Movies</NavLink>
                         <NavLink className="nav-link" to="/movie-list" onClick={handleNavLinkClick}>Movie List</NavLink>
                     </Nav>
-                    {/* Weitere Elemente */}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

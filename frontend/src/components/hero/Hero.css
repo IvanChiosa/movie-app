@@ -13,6 +13,20 @@
     background-color: black;
 }
 
+/* Tablets und kleine Desktops */
+/*@media screen and (min-width: 768px) {*/
+/*    .movie-card-container {*/
+/*        height: 200px;*/
+/*    }*/
+/*}*/
+
+/* Große Desktops */
+/*@media screen and (min-width: 1025px) {*/
+/*    .movie-card-container {*/
+/*        height: 630px; !* der ursprünglich festgelegte Wert für große Bildschirme *!*/
+/*    }*/
+/*}*/
+
 .movie-poster {
     height: 300px;
     border: 1px solid gold;
@@ -26,8 +40,8 @@
 }
 
 .movie-card-container {
-    /*height: auto;*/
-    height: 630px;
+    /*height: 100%;*/
+    height: 818px;
     background-color: black;
 }
 

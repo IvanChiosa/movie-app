@@ -1,7 +1,6 @@
 package org.example.backend.controller;
 
 import org.example.backend.model.Movie;
-import org.example.backend.model.Review;
 import org.example.backend.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

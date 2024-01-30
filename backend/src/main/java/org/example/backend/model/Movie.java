@@ -25,9 +25,9 @@ public class Movie {
     private List<String> backdrops;
     private List<Review> reviews;
 
-
     @DocumentReference
     private List<Review> reviewIds;
+
     public <E> Movie(
             String tt1234567,
             String testMovie,

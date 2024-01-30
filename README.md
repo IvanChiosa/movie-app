@@ -49,6 +49,7 @@
 **Funktionalitäten der 'Movie-app':**
 - Anzeigen, Hinzufügen, Aktualisieren und Löschen von Filmen.
 - Hinterlassen von Kommentaren zu Filmen und Ansehen von Trailern.
+- Meine MovieDB bietet die Möglichkeit, alle Ihre Lieblingsfilme, inklusive eines kurzen Trailers, anzulegen. Hierfür wird dem Nutzer eine Eingabemaske zur Verfügung gestellt. Eingegebene Filme können später aktualisiert oder gelöscht werden. Außerdem können Sie neue Filme hinzufügen, Rezensionen schreiben und die gesamte Filmliste einsehen.
 
 **Hinweis:** ⚠️💥 
 - Das Projekt befindet sich derzeit in der Deployment-Phase auf Render.com. Es kann vorkommen, dass der Server alle 15 Minuten ausfällt und anschließend etwa 30 bis 90 Sekunden für einen Neustart benötigt. Sollte die Seite nach dem Anklicken des Links nicht sofort laden, bitte ich Sie um ein wenig Geduld. Der Container wird gerade neu gestartet. Bald können Sie die Inhalte auf meiner Webseite in Ruhe betrachten. Entspannen Sie sich und genießen Sie Ihren Besuch!👉 https://movie-app-7tas.onrender.com/

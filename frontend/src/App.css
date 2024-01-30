@@ -5,12 +5,6 @@
     font-family: 'Quicksand', Arial, Helvetica, sans-serif;
 }
 
-/*html, body {*/
-/*    height: 100%;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-
 .App {
     display: flex;
     flex-direction: column;
@@ -18,24 +12,6 @@
     background-color: black;
     color: white;
 }
-
-/*@media screen and (min-width: 1025px) {*/
-/*    .movie-poster {*/
-/*        height: 300px;*/
-/*    }*/
-
-/*    .movie-detail {*/
-/*        flex-direction: row;*/
-/*        align-items: center;*/
-/*        top: 30px;*/
-/*    }*/
-/*    !*.movie-poster {*!*/
-/*    !*    height: 300px;*!*/
-/*    !*    border: 1px solid gold;*!*/
-/*    !*    border-radius: 10px;*!*/
-/*    !*    overflow: hidden;*!*/
-/*    !*}*!*/
-/*}*/
 
 
 

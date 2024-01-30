@@ -3,26 +3,25 @@
     margin-bottom: 0;
     height: 50px;
     display: flex;
-    align-items: center; /* Zentriert Elemente vertikal in der Navbar */
-    justify-content: space-between; /* Erzeugt gleichmäßigen Raum zwischen den Hauptelementen */
-    z-index: 1050; /* Stellen Sie sicher, dass dieser Wert höher ist als der des Hintergrundbildes */
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1050;
     position: relative;
 }
 
 .container.fluid {
     padding-top: 0;
     display: flex;
-    flex-wrap: wrap; /* Erlaubt Umbrüche für kleinere Bildschirme */
+    flex-wrap: wrap;
     width: 100%;
 }
 
-/* Stil für das Brand-Element */
 .navbar-brand {
-    flex-grow: 1; /* Erlaubt es dem Brand, Raum zu beanspruchen */
+    flex-grow: 1;
     display: flex;
     align-items: center;
-    color: gold; /* Setzt die Farbe des Brands */
-    text-decoration: none; /* Entfernt Unterstreichung */
+    color: gold;
+    text-decoration: none;
 }
 
 .navbar-row {
@@ -32,32 +31,31 @@
 }
 
 .nav-link {
-    color: white; /* Setzt die Farbe der Links */
-    text-decoration: none; /* Entfernt Unterstreichung */
-    margin-right: 10px; /* Abstand zwischen den Links */
-    border: gold 1px solid; /* Setzt einen Rahmen um die Links */
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    border: gold 1px solid;
 }
 
 .nav-link:hover {
-    color: #9d703b; /* Farbe beim Hover */
+    color: #9d703b;
 }
 
 .movie-app:hover {
-    color: #9d703b; /* Farbe beim Hover */
+    color: #9d703b;
 }
 
-/* Stil für die Buttons */
 .navbar-collapse .ms-auto {
     display: flex;
     align-items: center;
 }
 
 button {
-    transition: 0.6s; /* Sanfter Übergang beim Hover */
+    transition: 0.6s;
 }
 
 button:hover {
-    color: #fff; /* Farbe beim Hover */
+    color: #fff;
     background-color: #17a2b8;
 }
 
@@ -99,9 +97,8 @@ button:hover {
     }
 
     .card-style {
-        margin: 10px; /* Reduzierung der Margin */
+        margin: 10px;
     }
-
 
     .navbar-collapse {
         transform: translateX(-100%);
@@ -136,11 +133,11 @@ button:hover {
 
 @media screen and (max-width: 1024px) {
     .card-body {
-        font-size: 14px; /* Kleinere Schriftgröße */
+        font-size: 14px;
     }
 
     .btn-bearbeiten-löschen {
-        padding: 5px 10px; /* Kleinere Buttons */
+        padding: 5px 10px;
         font-size: 12px;
     }
 }

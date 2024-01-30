@@ -1,9 +1,3 @@
-/*.min-height {*/
-/*    min-height: 100vh; !* Sorgt dafür, dass der Hauptinhalt mindestens so hoch wie das Browserfenster ist *!*/
-/*    !*padding-bottom: 0px;*!*/
-/*    !*padding-top: 0px;!* Platz für den Footer am Ende der Seite, passen Sie dies an die tatsächliche Höhe Ihres Footers an *!*!*/
-/*}*/
-
 :root {
     --img: url('https://image.tmdb.org/t/p/w500/kgJ8bX3zDQDM2Idkleis28XSVnu.jpg');
 }
@@ -12,20 +6,6 @@
     width: 100%;
     background-color: black;
 }
-
-/* Tablets und kleine Desktops */
-/*@media screen and (min-width: 768px) {*/
-/*    .movie-card-container {*/
-/*        height: 200px;*/
-/*    }*/
-/*}*/
-
-/* Große Desktops */
-/*@media screen and (min-width: 1025px) {*/
-/*    .movie-card-container {*/
-/*        height: 630px; !* der ursprünglich festgelegte Wert für große Bildschirme *!*/
-/*    }*/
-/*}*/
 
 .movie-poster {
     height: 300px;
@@ -40,7 +20,6 @@
 }
 
 .movie-card-container {
-    /*height: 100%;*/
     height: 818px;
     background-color: black;
 }

@@ -28,7 +28,6 @@ public class MovieService {
         return movieRepository.insert(movie);
     }
 
-
     public Optional<Movie> updateMovie(String id, Movie movieDetails) {
         try {
             ObjectId objectId = new ObjectId(id); // Konvertiere den String in ObjectId

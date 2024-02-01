@@ -5,3 +5,7 @@ footer {
     padding: 20px;
     margin-top: 10px;
 }
+
+footer a {
+    color: #007bff;
+}

@@ -46,7 +46,7 @@ const MovieList: React.FC = () => {
 
     return (
         <div className="card-style">
-            <Row xs={1} md={2} lg={2} className="movie-row">
+            <Row xs={1} md={2} lg={3} className="movie-row">
                 {movies.map((movie) => (
                     <Col key={movie.id} className="mb-3">
                         <Card className="card-movie">

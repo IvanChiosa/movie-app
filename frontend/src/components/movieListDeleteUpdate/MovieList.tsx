@@ -37,7 +37,6 @@ const MovieList: React.FC = () => {
 
     const handleUpdateSuccess = () => {
         console.log("Der Film wurde erfolgreich aktualisiert.");
-        // Führen Sie hier weitere Aktionen aus, z.B. das Aktualisieren der Film-Liste
     };
 
     const handleUpdateFailure = () => {
